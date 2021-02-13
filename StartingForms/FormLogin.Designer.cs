@@ -1,6 +1,6 @@
 ﻿namespace CosmeticSalon
 {
-    partial class LoginForm
+    partial class FormLogin
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -33,7 +33,7 @@
             this.lbl_login = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_registration = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_login
@@ -78,29 +78,30 @@
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // button1
+            // btn_registration
             // 
-            this.button1.Location = new System.Drawing.Point(186, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Реєстрація";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_registration.Location = new System.Drawing.Point(186, 90);
+            this.btn_registration.Name = "btn_registration";
+            this.btn_registration.Size = new System.Drawing.Size(75, 23);
+            this.btn_registration.TabIndex = 5;
+            this.btn_registration.Text = "Реєстрація";
+            this.btn_registration.UseVisualStyleBackColor = true;
+            this.btn_registration.Click += new System.EventHandler(this.btn_registration_Click);
             // 
-            // LoginForm
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 124);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_registration);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_login);
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.tb_login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "LoginForm";
+            this.MaximizeBox = false;
+            this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Косметичний салон";
             this.ResumeLayout(false);
@@ -115,7 +116,7 @@
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_registration;
     }
 }
 

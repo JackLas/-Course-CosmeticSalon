@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace CosmeticSalon
 {
-    public partial class LoginForm : Form
+    public partial class FormLogin : Form
     {
-        public LoginForm()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -15,9 +15,11 @@ namespace CosmeticSalon
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_registration_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form reg = new FormRegistration(this);
+            reg.Show();
         }
     }
 }
