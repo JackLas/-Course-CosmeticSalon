@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using CosmeticSalon.Common;
 using CosmeticSalon.DB;
+using CosmeticSalon.MainForms;
 
 namespace CosmeticSalon
 {
@@ -25,10 +26,12 @@ namespace CosmeticSalon
                     lbl_wrongLogPass.Visible = false;
                     break;
                 default:
-                    MessageBox.Show("OK");
-                    lbl_wrongLogPass.Visible = false;
+                    Form main = new FormWork(acc, this);
+                    this.Hide();
+                    main.Show();
                     break;
             }
+
         }
 
         private void btn_registration_Click(object sender, EventArgs e)

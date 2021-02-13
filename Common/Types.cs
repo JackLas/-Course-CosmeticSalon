@@ -10,11 +10,11 @@ namespace CosmeticSalon.Common
     {
         public enum AccountType
         {
+            NOT_ACTIVE = -1,
             UNKNOWN = 0,
-            NOT_ACTIVE,
-            WORKER,
-            ACOUNTANT,
-            ADMINISTRATOR
+            HAIRDRESSER = 1,
+            ADMINISTRATOR = 2,
+            Masseur = 3
         }
     }
 }

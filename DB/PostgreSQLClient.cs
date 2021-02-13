@@ -29,10 +29,16 @@ namespace CosmeticSalon.DB
 
         public Account login(string login, string password)
         {
-            string sql = 
-                @"SELECT ""Employees"".id as ""id"", 
-                ""Accounts"".activated as ""status"", 
-                ""Employees"".id_post as ""post""
+            string sql =
+                @"SELECT ""Employees"".id, 
+                ""Employees"".surname,
+                ""Employees"".name,
+                ""Employees"".""middleName"",
+                ""Employees"".id_post as ""post"",
+                ""Employees"".phone,
+                ""Employees"".""salaryBonus"",
+                ""Employees"".exp,
+                ""Accounts"".activated as ""status"" 
                 FROM ""Employees""
                 INNER JOIN ""Accounts"" ON ""Accounts"".id_employees=""Employees"".id
                 WHERE ""Accounts"".login=@login AND ""Accounts"".password=@password";
@@ -58,6 +64,14 @@ namespace CosmeticSalon.DB
                     {
                         acc.Type = Types.AccountType.NOT_ACTIVE;
                     }
+
+                    acc.Surname = (string)employee["surname"];
+                    acc.Name = (string)employee["name"];
+                    acc.MiddleName = employee.IsDBNull(3) ? "" : (string)employee["middleName"];
+                    acc.Phone = employee.IsDBNull(5) ? "" : (string)employee["phone"];
+                    acc.SalaryBonus = (int)employee["salaryBonus"];
+                    acc.Expirience = employee.IsDBNull(7) ? new string[0] : (string[])employee["exp"];
+
                     employee.Close();
                 }
 
