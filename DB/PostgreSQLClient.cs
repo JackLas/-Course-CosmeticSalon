@@ -24,7 +24,7 @@ namespace CosmeticSalon.DB
         public Account login(string login, string password)
         {
             string sql = 
-                @" SELECT ""Employees"".id as ""id"", 
+                @"SELECT ""Employees"".id as ""id"", 
                 ""Accounts"".activated as ""status"", 
                 ""Employees"".id_post as ""post""
                 FROM ""Employees""
@@ -58,5 +58,7 @@ namespace CosmeticSalon.DB
                 return acc;
             }
         }
+
+        void register()
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CosmeticSalon.Common;
 using CosmeticSalon.DB;
@@ -18,13 +19,15 @@ namespace CosmeticSalon
             switch (acc.Type)
             {
                 case Types.AccountType.UNKNOWN:
-                    MessageBox.Show("unknown");
+                    lbl_wrongLogPass.Visible = true;
                     break;
                 case Types.AccountType.NOT_ACTIVE:
-                    MessageBox.Show("not active");
+                    MessageBox.Show("Зачекайте підтвердження адміністратора");
+                    lbl_wrongLogPass.Visible = false;
                     break;
                 default:
                     MessageBox.Show("OK");
+                    lbl_wrongLogPass.Visible = false;
                     break;
             }
         }

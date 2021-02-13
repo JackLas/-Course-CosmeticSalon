@@ -34,6 +34,7 @@
             this.lbl_password = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_registration = new System.Windows.Forms.Button();
+            this.lbl_wrongLogPass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb_login
@@ -88,11 +89,24 @@
             this.btn_registration.UseVisualStyleBackColor = true;
             this.btn_registration.Click += new System.EventHandler(this.btn_registration_Click);
             // 
+            // lbl_wrongLogPass
+            // 
+            this.lbl_wrongLogPass.AutoSize = true;
+            this.lbl_wrongLogPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_wrongLogPass.ForeColor = System.Drawing.Color.Red;
+            this.lbl_wrongLogPass.Location = new System.Drawing.Point(64, 9);
+            this.lbl_wrongLogPass.Name = "lbl_wrongLogPass";
+            this.lbl_wrongLogPass.Size = new System.Drawing.Size(198, 13);
+            this.lbl_wrongLogPass.TabIndex = 6;
+            this.lbl_wrongLogPass.Text = "Неправильний логін або пароль";
+            this.lbl_wrongLogPass.Visible = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 124);
+            this.Controls.Add(this.lbl_wrongLogPass);
             this.Controls.Add(this.btn_registration);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.lbl_password);
@@ -117,6 +131,7 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Button btn_registration;
+        private System.Windows.Forms.Label lbl_wrongLogPass;
     }
 }
 
