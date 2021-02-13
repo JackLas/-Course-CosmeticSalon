@@ -12,7 +12,10 @@ namespace CosmeticSalon.MainForms
         {
             mUser = account;
             mParentForm = parentForm;
+
             InitializeComponent();
+
+            mUser.initializeForm(this);
         }
 
         private void FormWork_FormClosed(object sender, FormClosedEventArgs e)

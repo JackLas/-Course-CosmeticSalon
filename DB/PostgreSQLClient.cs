@@ -58,11 +58,11 @@ namespace CosmeticSalon.DB
 
                     if ((bool)employee["status"])
                     {
-                        acc.Type = Utils.accountTypeFromDBID((int)employee["post"]);
+                        acc.setAccountType(Utils.accountTypeFromDBID((int)employee["post"]));
                     }
                     else
                     {
-                        acc.Type = Types.AccountType.NOT_ACTIVE;
+                        acc.setAccountType(Types.AccountType.NOT_ACTIVE);
                     }
 
                     acc.Surname = (string)employee["surname"];
@@ -158,18 +158,6 @@ namespace CosmeticSalon.DB
 
             using (var addEmployeeQuery = new NpgsqlCommand(addEmployeeSql, db))
             {
-                string expSqlArray = "{";
-                bool isSqlArraySet = false;
-                foreach (string line in exp)
-                {
-                    if (isSqlArraySet) expSqlArray += ",";
-
-                    expSqlArray += "{" + line +"}";
-                    isSqlArraySet = true;
-                }
-                expSqlArray += "}";
-
-
                 addEmployeeQuery.Parameters.AddWithValue("surname", surname);
                 addEmployeeQuery.Parameters.AddWithValue("name", name);
                 addEmployeeQuery.Parameters.AddWithValue("middleName", middleName);
@@ -178,8 +166,6 @@ namespace CosmeticSalon.DB
                 var expPar = new NpgsqlParameter("exp", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text);
                 expPar.Value = exp;
                 addEmployeeQuery.Parameters.Add(expPar);
-
-                //addEmployeeQuery.Parameters.AddWithValue("exp", expSqlArray);
 
                 addEmployeeQuery.ExecuteNonQuery();
             }

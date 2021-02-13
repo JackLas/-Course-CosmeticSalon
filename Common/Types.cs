@@ -14,7 +14,8 @@ namespace CosmeticSalon.Common
             UNKNOWN = 0,
             HAIRDRESSER = 1,
             ADMINISTRATOR = 2,
-            Masseur = 3
+            MASSEUR = 3,
+            ACCOUNTANT = 4
         }
     }
 }

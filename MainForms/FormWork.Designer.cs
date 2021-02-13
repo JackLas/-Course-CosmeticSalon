@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbl_test = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lbl_test
+            // 
+            this.lbl_test.AutoSize = true;
+            this.lbl_test.Location = new System.Drawing.Point(144, 37);
+            this.lbl_test.Name = "lbl_test";
+            this.lbl_test.Size = new System.Drawing.Size(35, 13);
+            this.lbl_test.TabIndex = 0;
+            this.lbl_test.Text = "label1";
             // 
             // FormWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_test);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormWork";
@@ -42,9 +53,12 @@
             this.Text = "FormWork";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormWork_FormClosed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lbl_test;
     }
 }
