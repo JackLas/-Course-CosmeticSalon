@@ -43,8 +43,8 @@
             this.tb_surname = new System.Windows.Forms.TextBox();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.tb_middleName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tb_phone = new System.Windows.Forms.TextBox();
+            this.rtb_exp = new System.Windows.Forms.RichTextBox();
             this.btn_registration = new System.Windows.Forms.Button();
             this.gb_account.SuspendLayout();
             this.SuspendLayout();
@@ -178,20 +178,20 @@
             this.tb_middleName.Size = new System.Drawing.Size(120, 20);
             this.tb_middleName.TabIndex = 10;
             // 
-            // textBox1
+            // tb_phone
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 20);
-            this.textBox1.TabIndex = 11;
+            this.tb_phone.Location = new System.Drawing.Point(15, 76);
+            this.tb_phone.Name = "tb_phone";
+            this.tb_phone.Size = new System.Drawing.Size(179, 20);
+            this.tb_phone.TabIndex = 11;
             // 
-            // richTextBox1
+            // rtb_exp
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 128);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(372, 125);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.rtb_exp.Location = new System.Drawing.Point(15, 128);
+            this.rtb_exp.Name = "rtb_exp";
+            this.rtb_exp.Size = new System.Drawing.Size(372, 125);
+            this.rtb_exp.TabIndex = 12;
+            this.rtb_exp.Text = "";
             // 
             // btn_registration
             // 
@@ -209,8 +209,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 459);
             this.Controls.Add(this.btn_registration);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.rtb_exp);
+            this.Controls.Add(this.tb_phone);
             this.Controls.Add(this.tb_middleName);
             this.Controls.Add(this.tb_name);
             this.Controls.Add(this.tb_surname);
@@ -225,6 +225,7 @@
             this.Name = "FormRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Косметичний салон - Реєстрація";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRegistration_FormClosed);
             this.gb_account.ResumeLayout(false);
             this.gb_account.PerformLayout();
             this.ResumeLayout(false);
@@ -249,8 +250,8 @@
         private System.Windows.Forms.TextBox tb_surname;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.TextBox tb_middleName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox tb_phone;
+        private System.Windows.Forms.RichTextBox rtb_exp;
         private System.Windows.Forms.Button btn_registration;
     }
 }

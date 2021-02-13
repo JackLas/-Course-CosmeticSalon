@@ -25,5 +25,15 @@ namespace CosmeticSalon.DB
         {
             return db.login(login, password);
         }
+
+        public void register(string login, string password, string surname, string name, string middleName, string phone, string[] exp)
+        {
+            db.register(login, password, surname, name, middleName, phone, exp);
+        }
+
+        public bool isLoginAlreadyExists(string login)
+        {
+            return db.isLoginAlreadyExists(login);
+        }
     }
 }
