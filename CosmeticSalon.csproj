@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Account.cs" />
+    <Compile Include="Common\Types.cs" />
+    <Compile Include="Common\Utils.cs" />
+    <Compile Include="DB\DBPresentation.cs" />
+    <Compile Include="DB\MockDBClient.cs" />
+    <Compile Include="DB\PostgreSQLClient.cs" />
     <Compile Include="StartingForms\FormRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
