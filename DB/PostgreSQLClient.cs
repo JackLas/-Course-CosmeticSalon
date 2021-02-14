@@ -202,5 +202,62 @@ namespace CosmeticSalon.DB
             }
             return result;
         }
+
+        public List<string> getStrListOfEmployees(bool activatedAccounts, string searchStr)
+        {
+            List<string> result = new List<string>();
+            string sql =
+                @"SELECT ""Employees"".id, surname, name, ""middleName""
+                FROM ""Employees""
+                INNER JOIN ""Accounts"" ON ""Accounts"".id_employees=""Employees"".id
+                WHERE ""Accounts"".activated=@activated ";
+
+            if (searchStr != null)
+            {
+                sql += " AND ";
+                int parseOut = 0;
+                if (int.TryParse(searchStr, out parseOut))
+                {
+                    sql += @" ""Employees"".id=@id ";
+                }
+                else
+                {
+                    sql += @" surname LIKE @search OR name LIKE @search OR ""middleName"" LIKE @search ";
+                }
+            }
+            sql += @" ORDER BY ""Employees"".id ";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("activated", activatedAccounts);
+                int parseOut = 0;
+                if (int.TryParse(searchStr, out parseOut))
+                {
+                    query.Parameters.AddWithValue("id", parseOut);
+                }
+                else if (searchStr != null)
+                {
+                    //var par = new NpgsqlParameter()
+                    query.Parameters.AddWithValue("search", "%"+searchStr+"%");
+                }
+
+
+                var reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string emplStr =
+                        ((int)reader["id"]).ToString() + ": " +
+                        (string)reader["Surname"] + " " +
+                        (string)reader["name"] + " " +
+                        (reader.IsDBNull(3) ? "" : (string)reader["middleName"]);
+                    result.Add(emplStr);
+                }
+
+                reader.Close();
+            }
+
+            return result;
+        }
     }
 }

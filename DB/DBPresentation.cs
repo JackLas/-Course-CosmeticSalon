@@ -1,4 +1,5 @@
 ﻿using CosmeticSalon.Common;
+using System.Collections.Generic;
 
 namespace CosmeticSalon.DB
 {
@@ -39,6 +40,11 @@ namespace CosmeticSalon.DB
         public string getPostName(Types.AccountType type)
         {
             return db.getPostName(type);
+        }
+
+        public List<string> getStrListOfEmployees(bool activatedAccounts = false, string searchStr = null)
+        {
+            return db.getStrListOfEmployees(activatedAccounts, searchStr);
         }
     }
 }
