@@ -111,5 +111,30 @@ namespace CosmeticSalon.DB
         {
             return db.getPostSalaryByID(id);
         }
+
+        public string[] getClientsStringList(string search = null)
+        {
+            return db.getClientsStringList(search);
+        }
+
+        public void updateClients(Client client)
+        {
+            db.updateClients(client);
+        }
+
+        public Client getClientByID(int id)
+        {
+            return db.getClientByID(id);
+        }
+
+        public void deleteClientByID(int id)
+        {
+            db.deleteClientByID(id);
+        }
+
+        public bool tryToAddNewClient(Client client)
+        {
+            return db.tryToAddNewClient(client);
+        }
     }
 }

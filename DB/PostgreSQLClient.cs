@@ -492,5 +492,115 @@ namespace CosmeticSalon.DB
             }
             return result;
         }
+
+        public string[] getClientsStringList(string search)
+        {
+            int id = 0;
+            string sql = @"SELECT * FROM ""Clients""";
+            if (search != null)
+            {
+                sql += " WHERE ";
+
+                if (int.TryParse(search, out id))
+                {
+                    sql += @" id=@search OR phone LIKE @phoneSearch";
+                }
+                else
+                {
+                    id = -1;
+                    sql += @" ""fullName"" LIKE @search OR ""phone"" LIKE @search";
+                }
+            }
+            sql += " ORDER BY id";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                if (search != null)
+                {
+                    if (id >= 0)
+                    {
+                        query.Parameters.AddWithValue("search", id);
+                        query.Parameters.AddWithValue("phoneSearch", "%" + search + "%");
+                    }
+                    else query.Parameters.AddWithValue("search", "%" + search + "%");
+                }
+
+                var reader = query.ExecuteReader();
+                List<string> rows = new List<string>();
+                while (reader.Read())
+                {
+                    rows.Add(((int)reader[0]).ToString() + ": " + (string)reader[1] + ", " + (string)reader[2]);
+                }
+                reader.Close();
+
+                return rows.ToArray();
+            }
+        }
+
+        public void updateClients(Client client)
+        {
+            string sql = @"UPDATE ""Clients"" SET ""fullName""=@name, phone=@phone WHERE id=@id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("name", client.FullName);
+                query.Parameters.AddWithValue("phone", client.Phone);
+                query.Parameters.AddWithValue("id", client.ID);
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public Client getClientByID(int id)
+        {
+            Client client = new Client();
+            string sql = @"SELECT * FROM ""Clients"" WHERE id=@id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", id);
+                var reader = query.ExecuteReader();
+                if (reader.Read())
+                {
+                    client.ID = (int)reader[0];
+                    client.FullName = (string)reader[1];
+                    client.Phone = (string)reader[2];
+                }
+                reader.Close();
+                return client;
+            }
+        }
+
+        public void deleteClientByID(int id)
+        {
+            string sql = @"DELETE FROM ""Clients"" WHERE id=@id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", id);
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public bool tryToAddNewClient(Client client)
+        {
+            bool isAlreadyExists = false;
+            string checkPhoneSql = @"SELECT COUNT(*) FROM ""Clients"" WHERE phone=@phone";
+            using (var query = new NpgsqlCommand(checkPhoneSql, db))
+            {
+                query.Parameters.AddWithValue("phone", client.Phone);
+                var reader = query.ExecuteReader();
+                if (reader.Read())
+                {
+                    isAlreadyExists = (long)reader[0] > 0;
+                }
+                reader.Close();
+                if (isAlreadyExists) return false;
+            }
+            string updateSql = @"INSERT INTO ""Clients"" (""fullName"", phone) VALUES (@name, @phone)";
+            using (var query = new NpgsqlCommand(updateSql, db))
+            {
+                query.Parameters.AddWithValue("name", client.FullName);
+                query.Parameters.AddWithValue("phone", client.Phone);
+                query.ExecuteNonQuery();
+                return true;
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using CosmeticSalon.Common;
 using CosmeticSalon.DB;
 
 namespace CosmeticSalon
@@ -47,9 +47,8 @@ namespace CosmeticSalon
 
         private bool checkInputValidity()
         {
-            if (!Regex.IsMatch(tb_phone.Text, @"\+380\d{9}$"))
+            if (!Utils.checkPhoneFormat(tb_phone.Text))
             {
-                MessageBox.Show("Перевірте телефон\nФормат:+380ХХХХХХХХХ");
                 return false;
             }
 
