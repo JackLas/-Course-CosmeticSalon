@@ -28,8 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl_main = new System.Windows.Forms.TabControl();
             this.tab_schedule = new System.Windows.Forms.TabPage();
+            this.lbl_sch_newClientTimer = new System.Windows.Forms.Label();
+            this.rtb_sch_nextClient = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rtb_sch_currentSch = new System.Windows.Forms.RichTextBox();
+            this.dtp_sch_currentSch = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gb_sch_newOrder = new System.Windows.Forms.GroupBox();
+            this.btn_sch_addNewOrder = new System.Windows.Forms.Button();
+            this.label_sch_order_minutes = new System.Windows.Forms.Label();
+            this.tb_sch_order_duration = new System.Windows.Forms.TextBox();
+            this.lbl_sch_order_duration = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtp_sch_order_time = new System.Windows.Forms.DateTimePicker();
+            this.dtp_sch_order_date = new System.Windows.Forms.DateTimePicker();
+            this.lbl_sch_date = new System.Windows.Forms.Label();
+            this.lbl_sch_price_plus = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_sch_price = new System.Windows.Forms.TextBox();
+            this.lbl_sch_price = new System.Windows.Forms.Label();
+            this.rtb_sch_desc = new System.Windows.Forms.RichTextBox();
+            this.lbl_sch_desc = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbl_sch_client_phone = new System.Windows.Forms.Label();
+            this.tb_sch_client_phone = new System.Windows.Forms.TextBox();
+            this.tb_sch_client_fullName = new System.Windows.Forms.TextBox();
+            this.lbl_sch_client_fullName = new System.Windows.Forms.Label();
+            this.btn_sch_clients_search = new System.Windows.Forms.Button();
+            this.tb_sch_client_search = new System.Windows.Forms.TextBox();
+            this.cb_sch_service = new System.Windows.Forms.ComboBox();
+            this.lbl_sch_service = new System.Windows.Forms.Label();
+            this.cb_sch_employee = new System.Windows.Forms.ComboBox();
             this.tab_salary = new System.Windows.Forms.TabPage();
             this.tab_employees = new System.Windows.Forms.TabPage();
             this.btn_empl_cancel = new System.Windows.Forms.Button();
@@ -100,7 +132,11 @@
             this.lbl_post = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.timer_main = new System.Windows.Forms.Timer(this.components);
             this.tabControl_main.SuspendLayout();
+            this.tab_schedule.SuspendLayout();
+            this.gb_sch_newOrder.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tab_employees.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -128,13 +164,317 @@
             // 
             // tab_schedule
             // 
+            this.tab_schedule.BackColor = System.Drawing.Color.Azure;
+            this.tab_schedule.Controls.Add(this.lbl_sch_newClientTimer);
+            this.tab_schedule.Controls.Add(this.rtb_sch_nextClient);
+            this.tab_schedule.Controls.Add(this.label4);
+            this.tab_schedule.Controls.Add(this.rtb_sch_currentSch);
+            this.tab_schedule.Controls.Add(this.dtp_sch_currentSch);
+            this.tab_schedule.Controls.Add(this.label3);
+            this.tab_schedule.Controls.Add(this.gb_sch_newOrder);
             this.tab_schedule.Location = new System.Drawing.Point(4, 22);
             this.tab_schedule.Name = "tab_schedule";
             this.tab_schedule.Padding = new System.Windows.Forms.Padding(3);
             this.tab_schedule.Size = new System.Drawing.Size(800, 387);
             this.tab_schedule.TabIndex = 0;
             this.tab_schedule.Text = "Розклад";
-            this.tab_schedule.UseVisualStyleBackColor = true;
+            // 
+            // lbl_sch_newClientTimer
+            // 
+            this.lbl_sch_newClientTimer.AutoSize = true;
+            this.lbl_sch_newClientTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_sch_newClientTimer.Location = new System.Drawing.Point(328, 201);
+            this.lbl_sch_newClientTimer.Name = "lbl_sch_newClientTimer";
+            this.lbl_sch_newClientTimer.Size = new System.Drawing.Size(59, 20);
+            this.lbl_sch_newClientTimer.TabIndex = 7;
+            this.lbl_sch_newClientTimer.Text = "TIMER";
+            // 
+            // rtb_sch_nextClient
+            // 
+            this.rtb_sch_nextClient.Location = new System.Drawing.Point(12, 224);
+            this.rtb_sch_nextClient.Name = "rtb_sch_nextClient";
+            this.rtb_sch_nextClient.Size = new System.Drawing.Size(393, 140);
+            this.rtb_sch_nextClient.TabIndex = 6;
+            this.rtb_sch_nextClient.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(8, 201);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(146, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Наступний клієнт:";
+            // 
+            // rtb_sch_currentSch
+            // 
+            this.rtb_sch_currentSch.Location = new System.Drawing.Point(12, 29);
+            this.rtb_sch_currentSch.Name = "rtb_sch_currentSch";
+            this.rtb_sch_currentSch.Size = new System.Drawing.Size(393, 169);
+            this.rtb_sch_currentSch.TabIndex = 4;
+            this.rtb_sch_currentSch.Text = "";
+            // 
+            // dtp_sch_currentSch
+            // 
+            this.dtp_sch_currentSch.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_sch_currentSch.Location = new System.Drawing.Point(112, 6);
+            this.dtp_sch_currentSch.Name = "dtp_sch_currentSch";
+            this.dtp_sch_currentSch.Size = new System.Drawing.Size(119, 20);
+            this.dtp_sch_currentSch.TabIndex = 3;
+            this.dtp_sch_currentSch.ValueChanged += new System.EventHandler(this.dtp_sch_currentSch_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Розклад на:";
+            // 
+            // gb_sch_newOrder
+            // 
+            this.gb_sch_newOrder.Controls.Add(this.btn_sch_addNewOrder);
+            this.gb_sch_newOrder.Controls.Add(this.label_sch_order_minutes);
+            this.gb_sch_newOrder.Controls.Add(this.tb_sch_order_duration);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_order_duration);
+            this.gb_sch_newOrder.Controls.Add(this.label2);
+            this.gb_sch_newOrder.Controls.Add(this.dtp_sch_order_time);
+            this.gb_sch_newOrder.Controls.Add(this.dtp_sch_order_date);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_date);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_price_plus);
+            this.gb_sch_newOrder.Controls.Add(this.textBox1);
+            this.gb_sch_newOrder.Controls.Add(this.tb_sch_price);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_price);
+            this.gb_sch_newOrder.Controls.Add(this.rtb_sch_desc);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_desc);
+            this.gb_sch_newOrder.Controls.Add(this.groupBox3);
+            this.gb_sch_newOrder.Controls.Add(this.cb_sch_service);
+            this.gb_sch_newOrder.Controls.Add(this.lbl_sch_service);
+            this.gb_sch_newOrder.Controls.Add(this.cb_sch_employee);
+            this.gb_sch_newOrder.Location = new System.Drawing.Point(422, 6);
+            this.gb_sch_newOrder.Name = "gb_sch_newOrder";
+            this.gb_sch_newOrder.Size = new System.Drawing.Size(366, 375);
+            this.gb_sch_newOrder.TabIndex = 1;
+            this.gb_sch_newOrder.TabStop = false;
+            this.gb_sch_newOrder.Text = "Новий запис";
+            // 
+            // btn_sch_addNewOrder
+            // 
+            this.btn_sch_addNewOrder.Location = new System.Drawing.Point(80, 335);
+            this.btn_sch_addNewOrder.Name = "btn_sch_addNewOrder";
+            this.btn_sch_addNewOrder.Size = new System.Drawing.Size(233, 23);
+            this.btn_sch_addNewOrder.TabIndex = 19;
+            this.btn_sch_addNewOrder.Text = "Додати запис";
+            this.btn_sch_addNewOrder.UseVisualStyleBackColor = true;
+            this.btn_sch_addNewOrder.Click += new System.EventHandler(this.btn_sch_addNewOrder_Click);
+            // 
+            // label_sch_order_minutes
+            // 
+            this.label_sch_order_minutes.AutoSize = true;
+            this.label_sch_order_minutes.Location = new System.Drawing.Point(221, 302);
+            this.label_sch_order_minutes.Name = "label_sch_order_minutes";
+            this.label_sch_order_minutes.Size = new System.Drawing.Size(42, 13);
+            this.label_sch_order_minutes.TabIndex = 18;
+            this.label_sch_order_minutes.Text = "хвилин";
+            // 
+            // tb_sch_order_duration
+            // 
+            this.tb_sch_order_duration.Location = new System.Drawing.Point(117, 299);
+            this.tb_sch_order_duration.Name = "tb_sch_order_duration";
+            this.tb_sch_order_duration.Size = new System.Drawing.Size(98, 20);
+            this.tb_sch_order_duration.TabIndex = 17;
+            // 
+            // lbl_sch_order_duration
+            // 
+            this.lbl_sch_order_duration.AutoSize = true;
+            this.lbl_sch_order_duration.Location = new System.Drawing.Point(6, 302);
+            this.lbl_sch_order_duration.Name = "lbl_sch_order_duration";
+            this.lbl_sch_order_duration.Size = new System.Drawing.Size(105, 13);
+            this.lbl_sch_order_duration.TabIndex = 16;
+            this.lbl_sch_order_duration.Text = "Тривалість сеансу*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(181, 279);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Час*";
+            // 
+            // dtp_sch_order_time
+            // 
+            this.dtp_sch_order_time.CustomFormat = "HH.mm";
+            this.dtp_sch_order_time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_sch_order_time.Location = new System.Drawing.Point(218, 273);
+            this.dtp_sch_order_time.Name = "dtp_sch_order_time";
+            this.dtp_sch_order_time.ShowUpDown = true;
+            this.dtp_sch_order_time.Size = new System.Drawing.Size(131, 20);
+            this.dtp_sch_order_time.TabIndex = 14;
+            this.dtp_sch_order_time.ValueChanged += new System.EventHandler(this.dtp_sch_order_time_ValueChanged);
+            // 
+            // dtp_sch_order_date
+            // 
+            this.dtp_sch_order_date.CustomFormat = "dd.MM.yyyy";
+            this.dtp_sch_order_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_sch_order_date.Location = new System.Drawing.Point(45, 273);
+            this.dtp_sch_order_date.Name = "dtp_sch_order_date";
+            this.dtp_sch_order_date.Size = new System.Drawing.Size(98, 20);
+            this.dtp_sch_order_date.TabIndex = 13;
+            this.dtp_sch_order_date.ValueChanged += new System.EventHandler(this.dtp_sch_order_date_ValueChanged);
+            // 
+            // lbl_sch_date
+            // 
+            this.lbl_sch_date.AutoSize = true;
+            this.lbl_sch_date.Location = new System.Drawing.Point(6, 279);
+            this.lbl_sch_date.Name = "lbl_sch_date";
+            this.lbl_sch_date.Size = new System.Drawing.Size(37, 13);
+            this.lbl_sch_date.TabIndex = 12;
+            this.lbl_sch_date.Text = "Дата*";
+            // 
+            // lbl_sch_price_plus
+            // 
+            this.lbl_sch_price_plus.AutoSize = true;
+            this.lbl_sch_price_plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_sch_price_plus.Location = new System.Drawing.Point(196, 245);
+            this.lbl_sch_price_plus.Name = "lbl_sch_price_plus";
+            this.lbl_sch_price_plus.Size = new System.Drawing.Size(19, 20);
+            this.lbl_sch_price_plus.TabIndex = 11;
+            this.lbl_sch_price_plus.Text = "+";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(221, 247);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // tb_sch_price
+            // 
+            this.tb_sch_price.Location = new System.Drawing.Point(61, 247);
+            this.tb_sch_price.Name = "tb_sch_price";
+            this.tb_sch_price.ReadOnly = true;
+            this.tb_sch_price.Size = new System.Drawing.Size(129, 20);
+            this.tb_sch_price.TabIndex = 9;
+            // 
+            // lbl_sch_price
+            // 
+            this.lbl_sch_price.AutoSize = true;
+            this.lbl_sch_price.Location = new System.Drawing.Point(6, 250);
+            this.lbl_sch_price.Name = "lbl_sch_price";
+            this.lbl_sch_price.Size = new System.Drawing.Size(50, 13);
+            this.lbl_sch_price.TabIndex = 8;
+            this.lbl_sch_price.Text = "Вартість";
+            // 
+            // rtb_sch_desc
+            // 
+            this.rtb_sch_desc.Location = new System.Drawing.Point(9, 195);
+            this.rtb_sch_desc.Name = "rtb_sch_desc";
+            this.rtb_sch_desc.Size = new System.Drawing.Size(340, 46);
+            this.rtb_sch_desc.TabIndex = 7;
+            this.rtb_sch_desc.Text = "";
+            // 
+            // lbl_sch_desc
+            // 
+            this.lbl_sch_desc.AutoSize = true;
+            this.lbl_sch_desc.Location = new System.Drawing.Point(15, 179);
+            this.lbl_sch_desc.Name = "lbl_sch_desc";
+            this.lbl_sch_desc.Size = new System.Drawing.Size(47, 13);
+            this.lbl_sch_desc.TabIndex = 6;
+            this.lbl_sch_desc.Text = "Замітки";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbl_sch_client_phone);
+            this.groupBox3.Controls.Add(this.tb_sch_client_phone);
+            this.groupBox3.Controls.Add(this.tb_sch_client_fullName);
+            this.groupBox3.Controls.Add(this.lbl_sch_client_fullName);
+            this.groupBox3.Controls.Add(this.btn_sch_clients_search);
+            this.groupBox3.Controls.Add(this.tb_sch_client_search);
+            this.groupBox3.Location = new System.Drawing.Point(9, 73);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 99);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Клієнт*";
+            // 
+            // lbl_sch_client_phone
+            // 
+            this.lbl_sch_client_phone.AutoSize = true;
+            this.lbl_sch_client_phone.Location = new System.Drawing.Point(237, 48);
+            this.lbl_sch_client_phone.Name = "lbl_sch_client_phone";
+            this.lbl_sch_client_phone.Size = new System.Drawing.Size(52, 13);
+            this.lbl_sch_client_phone.TabIndex = 8;
+            this.lbl_sch_client_phone.Text = "Телефон";
+            // 
+            // tb_sch_client_phone
+            // 
+            this.tb_sch_client_phone.Location = new System.Drawing.Point(240, 64);
+            this.tb_sch_client_phone.Name = "tb_sch_client_phone";
+            this.tb_sch_client_phone.Size = new System.Drawing.Size(94, 20);
+            this.tb_sch_client_phone.TabIndex = 7;
+            // 
+            // tb_sch_client_fullName
+            // 
+            this.tb_sch_client_fullName.Location = new System.Drawing.Point(9, 64);
+            this.tb_sch_client_fullName.Name = "tb_sch_client_fullName";
+            this.tb_sch_client_fullName.Size = new System.Drawing.Size(225, 20);
+            this.tb_sch_client_fullName.TabIndex = 6;
+            // 
+            // lbl_sch_client_fullName
+            // 
+            this.lbl_sch_client_fullName.AutoSize = true;
+            this.lbl_sch_client_fullName.Location = new System.Drawing.Point(6, 48);
+            this.lbl_sch_client_fullName.Name = "lbl_sch_client_fullName";
+            this.lbl_sch_client_fullName.Size = new System.Drawing.Size(25, 13);
+            this.lbl_sch_client_fullName.TabIndex = 3;
+            this.lbl_sch_client_fullName.Text = "ПІБ";
+            // 
+            // btn_sch_clients_search
+            // 
+            this.btn_sch_clients_search.Location = new System.Drawing.Point(282, 17);
+            this.btn_sch_clients_search.Name = "btn_sch_clients_search";
+            this.btn_sch_clients_search.Size = new System.Drawing.Size(52, 23);
+            this.btn_sch_clients_search.TabIndex = 5;
+            this.btn_sch_clients_search.Text = "Пошук";
+            this.btn_sch_clients_search.UseVisualStyleBackColor = true;
+            this.btn_sch_clients_search.Click += new System.EventHandler(this.btn_sch_clients_search_Click);
+            // 
+            // tb_sch_client_search
+            // 
+            this.tb_sch_client_search.Location = new System.Drawing.Point(6, 19);
+            this.tb_sch_client_search.Name = "tb_sch_client_search";
+            this.tb_sch_client_search.Size = new System.Drawing.Size(270, 20);
+            this.tb_sch_client_search.TabIndex = 4;
+            // 
+            // cb_sch_service
+            // 
+            this.cb_sch_service.FormattingEnabled = true;
+            this.cb_sch_service.Location = new System.Drawing.Point(61, 46);
+            this.cb_sch_service.Name = "cb_sch_service";
+            this.cb_sch_service.Size = new System.Drawing.Size(288, 21);
+            this.cb_sch_service.TabIndex = 2;
+            this.cb_sch_service.SelectedIndexChanged += new System.EventHandler(this.cb_sch_service_SelectedIndexChanged);
+            // 
+            // lbl_sch_service
+            // 
+            this.lbl_sch_service.AutoSize = true;
+            this.lbl_sch_service.Location = new System.Drawing.Point(6, 49);
+            this.lbl_sch_service.Name = "lbl_sch_service";
+            this.lbl_sch_service.Size = new System.Drawing.Size(53, 13);
+            this.lbl_sch_service.TabIndex = 1;
+            this.lbl_sch_service.Text = "Послуга*";
+            // 
+            // cb_sch_employee
+            // 
+            this.cb_sch_employee.FormattingEnabled = true;
+            this.cb_sch_employee.Location = new System.Drawing.Point(6, 19);
+            this.cb_sch_employee.Name = "cb_sch_employee";
+            this.cb_sch_employee.Size = new System.Drawing.Size(343, 21);
+            this.cb_sch_employee.TabIndex = 0;
             // 
             // tab_salary
             // 
@@ -820,6 +1160,10 @@
             this.btn_exit.UseVisualStyleBackColor = false;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
+            // timer_main
+            // 
+            this.timer_main.Tick += new System.EventHandler(this.timer_main_Tick);
+            // 
             // FormWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -838,6 +1182,12 @@
             this.Text = "FormWork";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormWork_FormClosed);
             this.tabControl_main.ResumeLayout(false);
+            this.tab_schedule.ResumeLayout(false);
+            this.tab_schedule.PerformLayout();
+            this.gb_sch_newOrder.ResumeLayout(false);
+            this.gb_sch_newOrder.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tab_employees.ResumeLayout(false);
             this.tab_employees.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -936,5 +1286,37 @@
         private System.Windows.Forms.TextBox tb_clients_fullName;
         private System.Windows.Forms.Label lbl_clients_fullName;
         private System.Windows.Forms.Button btn_clients_add;
+        private System.Windows.Forms.ComboBox cb_sch_employee;
+        private System.Windows.Forms.GroupBox gb_sch_newOrder;
+        private System.Windows.Forms.Label lbl_sch_service;
+        private System.Windows.Forms.RichTextBox rtb_sch_desc;
+        private System.Windows.Forms.Label lbl_sch_desc;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbl_sch_client_phone;
+        private System.Windows.Forms.TextBox tb_sch_client_phone;
+        private System.Windows.Forms.TextBox tb_sch_client_fullName;
+        private System.Windows.Forms.Label lbl_sch_client_fullName;
+        private System.Windows.Forms.Button btn_sch_clients_search;
+        private System.Windows.Forms.TextBox tb_sch_client_search;
+        private System.Windows.Forms.ComboBox cb_sch_service;
+        private System.Windows.Forms.Label lbl_sch_price_plus;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_sch_price;
+        private System.Windows.Forms.Label lbl_sch_price;
+        private System.Windows.Forms.Button btn_sch_addNewOrder;
+        private System.Windows.Forms.Label label_sch_order_minutes;
+        private System.Windows.Forms.TextBox tb_sch_order_duration;
+        private System.Windows.Forms.Label lbl_sch_order_duration;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtp_sch_order_time;
+        private System.Windows.Forms.DateTimePicker dtp_sch_order_date;
+        private System.Windows.Forms.Label lbl_sch_date;
+        private System.Windows.Forms.Label lbl_sch_newClientTimer;
+        private System.Windows.Forms.RichTextBox rtb_sch_nextClient;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox rtb_sch_currentSch;
+        private System.Windows.Forms.DateTimePicker dtp_sch_currentSch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer_main;
     }
 }
