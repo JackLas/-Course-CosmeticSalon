@@ -87,6 +87,19 @@
             this.lbl_post = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.tab_clients = new System.Windows.Forms.TabPage();
+            this.gb_clients = new System.Windows.Forms.GroupBox();
+            this.lbl_clients_fullName = new System.Windows.Forms.Label();
+            this.tb_clients_fullName = new System.Windows.Forms.TextBox();
+            this.tb_clients_phone = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bt_clients_update = new System.Windows.Forms.Button();
+            this.btn_clients_delete = new System.Windows.Forms.Button();
+            this.btn_clients_reset = new System.Windows.Forms.Button();
+            this.tb_clients_search = new System.Windows.Forms.TextBox();
+            this.btn_clients_search = new System.Windows.Forms.Button();
+            this.lb_clients = new System.Windows.Forms.ListBox();
+            this.btn_clients_add = new System.Windows.Forms.Button();
             this.tabControl_main.SuspendLayout();
             this.tab_employees.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,6 +109,8 @@
             this.gb_updService.SuspendLayout();
             this.gb_newPost.SuspendLayout();
             this.gb_newService.SuspendLayout();
+            this.tab_clients.SuspendLayout();
+            this.gb_clients.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_main
@@ -103,6 +118,7 @@
             this.tabControl_main.Controls.Add(this.tab_schedule);
             this.tabControl_main.Controls.Add(this.tab_salary);
             this.tabControl_main.Controls.Add(this.tab_employees);
+            this.tabControl_main.Controls.Add(this.tab_clients);
             this.tabControl_main.Controls.Add(this.tab_other);
             this.tabControl_main.Location = new System.Drawing.Point(-4, 41);
             this.tabControl_main.Name = "tabControl_main";
@@ -677,6 +693,133 @@
             this.btn_exit.UseVisualStyleBackColor = false;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
+            // tab_clients
+            // 
+            this.tab_clients.BackColor = System.Drawing.Color.Azure;
+            this.tab_clients.Controls.Add(this.lb_clients);
+            this.tab_clients.Controls.Add(this.btn_clients_search);
+            this.tab_clients.Controls.Add(this.tb_clients_search);
+            this.tab_clients.Controls.Add(this.gb_clients);
+            this.tab_clients.Location = new System.Drawing.Point(4, 22);
+            this.tab_clients.Name = "tab_clients";
+            this.tab_clients.Size = new System.Drawing.Size(800, 387);
+            this.tab_clients.TabIndex = 4;
+            this.tab_clients.Text = "Клієнти";
+            // 
+            // gb_clients
+            // 
+            this.gb_clients.Controls.Add(this.btn_clients_add);
+            this.gb_clients.Controls.Add(this.btn_clients_reset);
+            this.gb_clients.Controls.Add(this.btn_clients_delete);
+            this.gb_clients.Controls.Add(this.bt_clients_update);
+            this.gb_clients.Controls.Add(this.label1);
+            this.gb_clients.Controls.Add(this.tb_clients_phone);
+            this.gb_clients.Controls.Add(this.tb_clients_fullName);
+            this.gb_clients.Controls.Add(this.lbl_clients_fullName);
+            this.gb_clients.Location = new System.Drawing.Point(12, 335);
+            this.gb_clients.Name = "gb_clients";
+            this.gb_clients.Size = new System.Drawing.Size(776, 40);
+            this.gb_clients.TabIndex = 0;
+            this.gb_clients.TabStop = false;
+            // 
+            // lbl_clients_fullName
+            // 
+            this.lbl_clients_fullName.AutoSize = true;
+            this.lbl_clients_fullName.Location = new System.Drawing.Point(6, 16);
+            this.lbl_clients_fullName.Name = "lbl_clients_fullName";
+            this.lbl_clients_fullName.Size = new System.Drawing.Size(28, 13);
+            this.lbl_clients_fullName.TabIndex = 0;
+            this.lbl_clients_fullName.Text = "ПІБ:";
+            // 
+            // tb_clients_fullName
+            // 
+            this.tb_clients_fullName.Location = new System.Drawing.Point(31, 13);
+            this.tb_clients_fullName.Name = "tb_clients_fullName";
+            this.tb_clients_fullName.Size = new System.Drawing.Size(293, 20);
+            this.tb_clients_fullName.TabIndex = 1;
+            // 
+            // tb_clients_phone
+            // 
+            this.tb_clients_phone.Location = new System.Drawing.Point(392, 13);
+            this.tb_clients_phone.Name = "tb_clients_phone";
+            this.tb_clients_phone.Size = new System.Drawing.Size(152, 20);
+            this.tb_clients_phone.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(338, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Телефон: ";
+            // 
+            // bt_clients_update
+            // 
+            this.bt_clients_update.Location = new System.Drawing.Point(550, 11);
+            this.bt_clients_update.Name = "bt_clients_update";
+            this.bt_clients_update.Size = new System.Drawing.Size(68, 23);
+            this.bt_clients_update.TabIndex = 4;
+            this.bt_clients_update.Text = "Оновити";
+            this.bt_clients_update.UseVisualStyleBackColor = true;
+            this.bt_clients_update.Click += new System.EventHandler(this.bt_clients_update_Click);
+            // 
+            // btn_clients_delete
+            // 
+            this.btn_clients_delete.Location = new System.Drawing.Point(624, 11);
+            this.btn_clients_delete.Name = "btn_clients_delete";
+            this.btn_clients_delete.Size = new System.Drawing.Size(68, 23);
+            this.btn_clients_delete.TabIndex = 5;
+            this.btn_clients_delete.Text = "Видалити";
+            this.btn_clients_delete.UseVisualStyleBackColor = true;
+            this.btn_clients_delete.Click += new System.EventHandler(this.btn_clients_delete_Click);
+            // 
+            // btn_clients_reset
+            // 
+            this.btn_clients_reset.Location = new System.Drawing.Point(698, 11);
+            this.btn_clients_reset.Name = "btn_clients_reset";
+            this.btn_clients_reset.Size = new System.Drawing.Size(68, 23);
+            this.btn_clients_reset.TabIndex = 6;
+            this.btn_clients_reset.Text = "Скасувати";
+            this.btn_clients_reset.UseVisualStyleBackColor = true;
+            this.btn_clients_reset.Click += new System.EventHandler(this.btn_clients_reset_Click);
+            // 
+            // tb_clients_search
+            // 
+            this.tb_clients_search.Location = new System.Drawing.Point(12, 3);
+            this.tb_clients_search.Name = "tb_clients_search";
+            this.tb_clients_search.Size = new System.Drawing.Size(692, 20);
+            this.tb_clients_search.TabIndex = 1;
+            // 
+            // btn_clients_search
+            // 
+            this.btn_clients_search.Location = new System.Drawing.Point(713, 1);
+            this.btn_clients_search.Name = "btn_clients_search";
+            this.btn_clients_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_clients_search.TabIndex = 2;
+            this.btn_clients_search.Text = "Пошук";
+            this.btn_clients_search.UseVisualStyleBackColor = true;
+            this.btn_clients_search.Click += new System.EventHandler(this.btn_clients_search_Click);
+            // 
+            // lb_clients
+            // 
+            this.lb_clients.FormattingEnabled = true;
+            this.lb_clients.Location = new System.Drawing.Point(12, 29);
+            this.lb_clients.Name = "lb_clients";
+            this.lb_clients.Size = new System.Drawing.Size(776, 303);
+            this.lb_clients.TabIndex = 3;
+            this.lb_clients.SelectedIndexChanged += new System.EventHandler(this.lb_clients_SelectedIndexChanged);
+            // 
+            // btn_clients_add
+            // 
+            this.btn_clients_add.Location = new System.Drawing.Point(584, 11);
+            this.btn_clients_add.Name = "btn_clients_add";
+            this.btn_clients_add.Size = new System.Drawing.Size(151, 23);
+            this.btn_clients_add.TabIndex = 7;
+            this.btn_clients_add.Text = "Додати";
+            this.btn_clients_add.UseVisualStyleBackColor = true;
+            this.btn_clients_add.Click += new System.EventHandler(this.btn_clients_add_Click);
+            // 
             // FormWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,6 +853,10 @@
             this.gb_newPost.PerformLayout();
             this.gb_newService.ResumeLayout(false);
             this.gb_newService.PerformLayout();
+            this.tab_clients.ResumeLayout(false);
+            this.tab_clients.PerformLayout();
+            this.gb_clients.ResumeLayout(false);
+            this.gb_clients.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -776,5 +923,18 @@
         private System.Windows.Forms.Button btn_newService_add;
         private System.Windows.Forms.Label lbl_newService_price;
         private System.Windows.Forms.Label lbl_newService_name;
+        private System.Windows.Forms.TabPage tab_clients;
+        private System.Windows.Forms.ListBox lb_clients;
+        private System.Windows.Forms.Button btn_clients_search;
+        private System.Windows.Forms.TextBox tb_clients_search;
+        private System.Windows.Forms.GroupBox gb_clients;
+        private System.Windows.Forms.Button btn_clients_reset;
+        private System.Windows.Forms.Button btn_clients_delete;
+        private System.Windows.Forms.Button bt_clients_update;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_clients_phone;
+        private System.Windows.Forms.TextBox tb_clients_fullName;
+        private System.Windows.Forms.Label lbl_clients_fullName;
+        private System.Windows.Forms.Button btn_clients_add;
     }
 }
