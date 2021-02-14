@@ -40,5 +40,21 @@ namespace CosmeticSalon
             Form reg = new FormRegistration(this);
             reg.Show();
         }
+
+        public void reopen()
+        {
+            tb_login.Text = "";
+            tb_login.Focus();
+            tb_password.Text = "";
+            this.Show();
+        }
+
+        private void FormLogin_Shown(object sender, EventArgs e)
+        {
+            // -- for testing purpose --
+            tb_login.Text = "admin";
+            tb_password.Text = "admin";
+            btn_login_Click(this, null);
+        }
     }
 }

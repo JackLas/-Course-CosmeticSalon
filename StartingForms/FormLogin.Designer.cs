@@ -118,6 +118,7 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Косметичний салон";
+            this.Shown += new System.EventHandler(this.FormLogin_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

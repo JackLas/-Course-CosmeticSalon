@@ -35,5 +35,10 @@ namespace CosmeticSalon.DB
         {
             return db.isLoginAlreadyExists(login);
         }
+
+        public string getPostName(Types.AccountType type)
+        {
+            return db.getPostName(type);
+        }
     }
 }

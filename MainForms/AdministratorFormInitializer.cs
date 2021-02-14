@@ -9,7 +9,7 @@ namespace CosmeticSalon.MainForms
             public void Initialize(FormWork form)
             {
                 form.Text = "Hello from Admin";
-                form.lbl_test.Text = "Hello from Admin";
+                //form.lbl_test.Text = "Hello from Admin";
             }
         }
     }

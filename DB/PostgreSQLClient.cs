@@ -185,5 +185,22 @@ namespace CosmeticSalon.DB
                 addAccountQuery.ExecuteNonQuery();
             }
         }
+
+        public string getPostName(Types.AccountType type)
+        {
+            string result = "[UNKNOWN]";
+            string sql = @"SELECT ""name"" FROM ""Posts"" WHERE ""id""=@typeid";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("typeid", (int)type);
+                var reader = query.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = reader.GetString(0);
+                }
+                reader.Close();
+            }
+            return result;
+        }
     }
 }
