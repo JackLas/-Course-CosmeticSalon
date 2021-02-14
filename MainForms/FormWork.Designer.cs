@@ -418,7 +418,7 @@
             this.gb_updPost.Size = new System.Drawing.Size(243, 131);
             this.gb_updPost.TabIndex = 7;
             this.gb_updPost.TabStop = false;
-            this.gb_updPost.Text = "Оновити послуги";
+            this.gb_updPost.Text = "Оновити посаду";
             // 
             // cb_updPost_name
             // 

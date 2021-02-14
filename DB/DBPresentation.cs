@@ -76,5 +76,40 @@ namespace CosmeticSalon.DB
         {
             db.updateEmployee(empl);
         }
+
+        public void addService(string name, int price)
+        {
+            db.addService(name, price);
+        }
+
+        public void addPost(string name, int salary)
+        {
+            db.addPost(name, salary);
+        }
+
+        public string[] getServicesStringList()
+        {
+            return db.getServicesStringList();
+        }
+
+        public void updateService(int id, int price)
+        {
+            db.updateService(id, price);
+        }
+
+        public void updatePost(int id, int salary)
+        {
+            db.updatePost(id, salary);
+        }
+
+        public int getServicePriceByID(int id)
+        {
+            return db.getServicePriceByID(id);
+        }
+
+        public int getPostSalaryByID(int id)
+        {
+            return db.getPostSalaryByID(id);
+        }
     }
 }

@@ -395,5 +395,102 @@ namespace CosmeticSalon.DB
                 query.ExecuteNonQuery();
             }
         }
+
+        public void addService(string name, int price)
+        {
+            string sql = @"INSERT INTO ""Services"" (""name"", ""price"") VALUES (@name, @price) ";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("name", name);
+                query.Parameters.AddWithValue("price", price);
+
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public void addPost(string name, int salary)
+        {
+            string sql = @"INSERT INTO ""Posts"" (""name"", ""baseSalary"") VALUES (@name, @salary) ";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("name", name);
+                query.Parameters.AddWithValue("salary", salary);
+
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public string[] getServicesStringList()
+        {
+            string sql = @"SELECT * FROM ""Services"" ORDER BY id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                List<string> rows = new List<string>();
+
+                var reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    rows.Add(((int)reader[0]).ToString() + ": " + (string)reader[1]);
+                }
+                reader.Close();
+
+                return rows.ToArray();
+            }
+        }
+
+        public void updateService(int id, int price)
+        {
+            string sql = @"UPDATE ""Services"" SET price=@price WHERE id=@id";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("price", price);
+                query.Parameters.AddWithValue("id", id);
+
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public void updatePost(int id, int salary)
+        {
+            string sql = @"UPDATE ""Posts"" SET ""baseSalary""=@salary WHERE id=@id";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("salary", salary);
+                query.Parameters.AddWithValue("id", id);
+
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public int getServicePriceByID(int id)
+        {
+            return getIntValueFromTableByID("Services", "price", id);
+        }
+
+        public int getPostSalaryByID(int id)
+        {
+            return getIntValueFromTableByID("Posts", "baseSalary", id);
+        }
+
+        private int getIntValueFromTableByID(string table, string value, int id)
+        {
+            int result = 0;
+            string sql = "SELECT " + "\"" + value + "\" " + "FROM " + "\"" + table + "\" WHERE id=@id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", id);
+
+                var reader = query.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    result = (int)reader[0];
+                }
+                reader.Close();
+            }
+            return result;
+        }
     }
 }

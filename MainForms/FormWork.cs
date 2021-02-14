@@ -43,5 +43,10 @@ namespace CosmeticSalon.MainForms
             isAppExit = false;
             this.Close();
         }
+
+        private void showSuccessMessage()
+        {
+            MessageBox.Show("OK");
+        }
     }
 }
