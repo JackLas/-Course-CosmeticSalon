@@ -18,7 +18,7 @@ namespace CosmeticSalon.MainForms
             }
         }
 
-        private void initEmployeesTab(FormWork form)
+        private void initEmployeesTab()
         {
             rbtn_activeList.Checked = true;
             cb_posts.Items.AddRange(DBPresentation.instance().getPostsStringList());

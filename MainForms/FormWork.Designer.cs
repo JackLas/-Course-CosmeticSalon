@@ -58,6 +58,31 @@
             this.lbl_empl_phone = new System.Windows.Forms.Label();
             this.lbl_empl_name = new System.Windows.Forms.Label();
             this.lbl_empl_middleName = new System.Windows.Forms.Label();
+            this.tab_other = new System.Windows.Forms.TabPage();
+            this.gb_updPost = new System.Windows.Forms.GroupBox();
+            this.cb_updPost_name = new System.Windows.Forms.ComboBox();
+            this.tb_updPost_salary = new System.Windows.Forms.TextBox();
+            this.btn_updPost_upd = new System.Windows.Forms.Button();
+            this.lbl_updPost_salary = new System.Windows.Forms.Label();
+            this.lbl_updPost_name = new System.Windows.Forms.Label();
+            this.gb_updService = new System.Windows.Forms.GroupBox();
+            this.cb_updService_name = new System.Windows.Forms.ComboBox();
+            this.tb_updService_price = new System.Windows.Forms.TextBox();
+            this.btn_updService_upd = new System.Windows.Forms.Button();
+            this.lbl_updService_price = new System.Windows.Forms.Label();
+            this.lbl_udpService_name = new System.Windows.Forms.Label();
+            this.gb_newPost = new System.Windows.Forms.GroupBox();
+            this.tb_newPost_salary = new System.Windows.Forms.TextBox();
+            this.tb_newPost_name = new System.Windows.Forms.TextBox();
+            this.btn_newPost_add = new System.Windows.Forms.Button();
+            this.lbl_newPost_salary = new System.Windows.Forms.Label();
+            this.lbl_newPost_name = new System.Windows.Forms.Label();
+            this.gb_newService = new System.Windows.Forms.GroupBox();
+            this.tb_newService_price = new System.Windows.Forms.TextBox();
+            this.tb_newService_name = new System.Windows.Forms.TextBox();
+            this.btn_newService_add = new System.Windows.Forms.Button();
+            this.lbl_newService_price = new System.Windows.Forms.Label();
+            this.lbl_newService_name = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_post = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
@@ -66,6 +91,11 @@
             this.tab_employees.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tab_other.SuspendLayout();
+            this.gb_updPost.SuspendLayout();
+            this.gb_updService.SuspendLayout();
+            this.gb_newPost.SuspendLayout();
+            this.gb_newService.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_main
@@ -73,6 +103,7 @@
             this.tabControl_main.Controls.Add(this.tab_schedule);
             this.tabControl_main.Controls.Add(this.tab_salary);
             this.tabControl_main.Controls.Add(this.tab_employees);
+            this.tabControl_main.Controls.Add(this.tab_other);
             this.tabControl_main.Location = new System.Drawing.Point(-4, 41);
             this.tabControl_main.Name = "tabControl_main";
             this.tabControl_main.SelectedIndex = 0;
@@ -361,6 +392,251 @@
             this.lbl_empl_middleName.TabIndex = 15;
             this.lbl_empl_middleName.Text = "По-батькові";
             // 
+            // tab_other
+            // 
+            this.tab_other.BackColor = System.Drawing.Color.Azure;
+            this.tab_other.Controls.Add(this.gb_updPost);
+            this.tab_other.Controls.Add(this.gb_updService);
+            this.tab_other.Controls.Add(this.gb_newPost);
+            this.tab_other.Controls.Add(this.gb_newService);
+            this.tab_other.Location = new System.Drawing.Point(4, 22);
+            this.tab_other.Name = "tab_other";
+            this.tab_other.Size = new System.Drawing.Size(800, 387);
+            this.tab_other.TabIndex = 3;
+            this.tab_other.Text = "Інше";
+            // 
+            // gb_updPost
+            // 
+            this.gb_updPost.BackColor = System.Drawing.Color.Thistle;
+            this.gb_updPost.Controls.Add(this.cb_updPost_name);
+            this.gb_updPost.Controls.Add(this.tb_updPost_salary);
+            this.gb_updPost.Controls.Add(this.btn_updPost_upd);
+            this.gb_updPost.Controls.Add(this.lbl_updPost_salary);
+            this.gb_updPost.Controls.Add(this.lbl_updPost_name);
+            this.gb_updPost.Location = new System.Drawing.Point(444, 202);
+            this.gb_updPost.Name = "gb_updPost";
+            this.gb_updPost.Size = new System.Drawing.Size(243, 131);
+            this.gb_updPost.TabIndex = 7;
+            this.gb_updPost.TabStop = false;
+            this.gb_updPost.Text = "Оновити послуги";
+            // 
+            // cb_updPost_name
+            // 
+            this.cb_updPost_name.FormattingEnabled = true;
+            this.cb_updPost_name.Location = new System.Drawing.Point(9, 32);
+            this.cb_updPost_name.Name = "cb_updPost_name";
+            this.cb_updPost_name.Size = new System.Drawing.Size(228, 21);
+            this.cb_updPost_name.TabIndex = 5;
+            this.cb_updPost_name.SelectedIndexChanged += new System.EventHandler(this.cb_updPost_name_SelectedIndexChanged);
+            // 
+            // tb_updPost_salary
+            // 
+            this.tb_updPost_salary.Location = new System.Drawing.Point(9, 71);
+            this.tb_updPost_salary.Name = "tb_updPost_salary";
+            this.tb_updPost_salary.Size = new System.Drawing.Size(228, 20);
+            this.tb_updPost_salary.TabIndex = 4;
+            // 
+            // btn_updPost_upd
+            // 
+            this.btn_updPost_upd.Location = new System.Drawing.Point(81, 97);
+            this.btn_updPost_upd.Name = "btn_updPost_upd";
+            this.btn_updPost_upd.Size = new System.Drawing.Size(75, 23);
+            this.btn_updPost_upd.TabIndex = 2;
+            this.btn_updPost_upd.Text = "Оновити";
+            this.btn_updPost_upd.UseVisualStyleBackColor = true;
+            this.btn_updPost_upd.Click += new System.EventHandler(this.btn_updPost_upd_Click);
+            // 
+            // lbl_updPost_salary
+            // 
+            this.lbl_updPost_salary.AutoSize = true;
+            this.lbl_updPost_salary.Location = new System.Drawing.Point(6, 55);
+            this.lbl_updPost_salary.Name = "lbl_updPost_salary";
+            this.lbl_updPost_salary.Size = new System.Drawing.Size(89, 13);
+            this.lbl_updPost_salary.TabIndex = 1;
+            this.lbl_updPost_salary.Text = "Заробітня плата";
+            // 
+            // lbl_updPost_name
+            // 
+            this.lbl_updPost_name.AutoSize = true;
+            this.lbl_updPost_name.Location = new System.Drawing.Point(6, 16);
+            this.lbl_updPost_name.Name = "lbl_updPost_name";
+            this.lbl_updPost_name.Size = new System.Drawing.Size(39, 13);
+            this.lbl_updPost_name.TabIndex = 0;
+            this.lbl_updPost_name.Text = "Назва";
+            // 
+            // gb_updService
+            // 
+            this.gb_updService.BackColor = System.Drawing.Color.LightCyan;
+            this.gb_updService.Controls.Add(this.cb_updService_name);
+            this.gb_updService.Controls.Add(this.tb_updService_price);
+            this.gb_updService.Controls.Add(this.btn_updService_upd);
+            this.gb_updService.Controls.Add(this.lbl_updService_price);
+            this.gb_updService.Controls.Add(this.lbl_udpService_name);
+            this.gb_updService.Location = new System.Drawing.Point(94, 202);
+            this.gb_updService.Name = "gb_updService";
+            this.gb_updService.Size = new System.Drawing.Size(243, 131);
+            this.gb_updService.TabIndex = 5;
+            this.gb_updService.TabStop = false;
+            this.gb_updService.Text = "Оновити послуги";
+            // 
+            // cb_updService_name
+            // 
+            this.cb_updService_name.FormattingEnabled = true;
+            this.cb_updService_name.Location = new System.Drawing.Point(9, 32);
+            this.cb_updService_name.Name = "cb_updService_name";
+            this.cb_updService_name.Size = new System.Drawing.Size(228, 21);
+            this.cb_updService_name.TabIndex = 5;
+            this.cb_updService_name.SelectedIndexChanged += new System.EventHandler(this.cb_updService_name_SelectedIndexChanged);
+            // 
+            // tb_updService_price
+            // 
+            this.tb_updService_price.Location = new System.Drawing.Point(9, 71);
+            this.tb_updService_price.Name = "tb_updService_price";
+            this.tb_updService_price.Size = new System.Drawing.Size(228, 20);
+            this.tb_updService_price.TabIndex = 4;
+            // 
+            // btn_updService_upd
+            // 
+            this.btn_updService_upd.Location = new System.Drawing.Point(81, 97);
+            this.btn_updService_upd.Name = "btn_updService_upd";
+            this.btn_updService_upd.Size = new System.Drawing.Size(75, 23);
+            this.btn_updService_upd.TabIndex = 2;
+            this.btn_updService_upd.Text = "Оновити";
+            this.btn_updService_upd.UseVisualStyleBackColor = true;
+            this.btn_updService_upd.Click += new System.EventHandler(this.btn_updService_upd_Click);
+            // 
+            // lbl_updService_price
+            // 
+            this.lbl_updService_price.AutoSize = true;
+            this.lbl_updService_price.Location = new System.Drawing.Point(6, 55);
+            this.lbl_updService_price.Name = "lbl_updService_price";
+            this.lbl_updService_price.Size = new System.Drawing.Size(29, 13);
+            this.lbl_updService_price.TabIndex = 1;
+            this.lbl_updService_price.Text = "Ціна";
+            // 
+            // lbl_udpService_name
+            // 
+            this.lbl_udpService_name.AutoSize = true;
+            this.lbl_udpService_name.Location = new System.Drawing.Point(6, 16);
+            this.lbl_udpService_name.Name = "lbl_udpService_name";
+            this.lbl_udpService_name.Size = new System.Drawing.Size(39, 13);
+            this.lbl_udpService_name.TabIndex = 0;
+            this.lbl_udpService_name.Text = "Назва";
+            // 
+            // gb_newPost
+            // 
+            this.gb_newPost.BackColor = System.Drawing.Color.Thistle;
+            this.gb_newPost.Controls.Add(this.tb_newPost_salary);
+            this.gb_newPost.Controls.Add(this.tb_newPost_name);
+            this.gb_newPost.Controls.Add(this.btn_newPost_add);
+            this.gb_newPost.Controls.Add(this.lbl_newPost_salary);
+            this.gb_newPost.Controls.Add(this.lbl_newPost_name);
+            this.gb_newPost.Location = new System.Drawing.Point(444, 34);
+            this.gb_newPost.Name = "gb_newPost";
+            this.gb_newPost.Size = new System.Drawing.Size(243, 131);
+            this.gb_newPost.TabIndex = 6;
+            this.gb_newPost.TabStop = false;
+            this.gb_newPost.Text = "Додати нову посаду";
+            // 
+            // tb_newPost_salary
+            // 
+            this.tb_newPost_salary.Location = new System.Drawing.Point(9, 71);
+            this.tb_newPost_salary.Name = "tb_newPost_salary";
+            this.tb_newPost_salary.Size = new System.Drawing.Size(228, 20);
+            this.tb_newPost_salary.TabIndex = 4;
+            // 
+            // tb_newPost_name
+            // 
+            this.tb_newPost_name.Location = new System.Drawing.Point(9, 32);
+            this.tb_newPost_name.Name = "tb_newPost_name";
+            this.tb_newPost_name.Size = new System.Drawing.Size(228, 20);
+            this.tb_newPost_name.TabIndex = 3;
+            // 
+            // btn_newPost_add
+            // 
+            this.btn_newPost_add.Location = new System.Drawing.Point(81, 97);
+            this.btn_newPost_add.Name = "btn_newPost_add";
+            this.btn_newPost_add.Size = new System.Drawing.Size(75, 23);
+            this.btn_newPost_add.TabIndex = 2;
+            this.btn_newPost_add.Text = "Додати";
+            this.btn_newPost_add.UseVisualStyleBackColor = true;
+            this.btn_newPost_add.Click += new System.EventHandler(this.btn_newPost_add_Click);
+            // 
+            // lbl_newPost_salary
+            // 
+            this.lbl_newPost_salary.AutoSize = true;
+            this.lbl_newPost_salary.Location = new System.Drawing.Point(6, 55);
+            this.lbl_newPost_salary.Name = "lbl_newPost_salary";
+            this.lbl_newPost_salary.Size = new System.Drawing.Size(89, 13);
+            this.lbl_newPost_salary.TabIndex = 1;
+            this.lbl_newPost_salary.Text = "Заробітня плата";
+            // 
+            // lbl_newPost_name
+            // 
+            this.lbl_newPost_name.AutoSize = true;
+            this.lbl_newPost_name.Location = new System.Drawing.Point(6, 16);
+            this.lbl_newPost_name.Name = "lbl_newPost_name";
+            this.lbl_newPost_name.Size = new System.Drawing.Size(39, 13);
+            this.lbl_newPost_name.TabIndex = 0;
+            this.lbl_newPost_name.Text = "Назва";
+            // 
+            // gb_newService
+            // 
+            this.gb_newService.BackColor = System.Drawing.Color.LightCyan;
+            this.gb_newService.Controls.Add(this.tb_newService_price);
+            this.gb_newService.Controls.Add(this.tb_newService_name);
+            this.gb_newService.Controls.Add(this.btn_newService_add);
+            this.gb_newService.Controls.Add(this.lbl_newService_price);
+            this.gb_newService.Controls.Add(this.lbl_newService_name);
+            this.gb_newService.Location = new System.Drawing.Point(94, 34);
+            this.gb_newService.Name = "gb_newService";
+            this.gb_newService.Size = new System.Drawing.Size(243, 131);
+            this.gb_newService.TabIndex = 0;
+            this.gb_newService.TabStop = false;
+            this.gb_newService.Text = "Додати нову послугу";
+            // 
+            // tb_newService_price
+            // 
+            this.tb_newService_price.Location = new System.Drawing.Point(9, 71);
+            this.tb_newService_price.Name = "tb_newService_price";
+            this.tb_newService_price.Size = new System.Drawing.Size(228, 20);
+            this.tb_newService_price.TabIndex = 4;
+            // 
+            // tb_newService_name
+            // 
+            this.tb_newService_name.Location = new System.Drawing.Point(9, 32);
+            this.tb_newService_name.Name = "tb_newService_name";
+            this.tb_newService_name.Size = new System.Drawing.Size(228, 20);
+            this.tb_newService_name.TabIndex = 3;
+            // 
+            // btn_newService_add
+            // 
+            this.btn_newService_add.Location = new System.Drawing.Point(81, 97);
+            this.btn_newService_add.Name = "btn_newService_add";
+            this.btn_newService_add.Size = new System.Drawing.Size(75, 23);
+            this.btn_newService_add.TabIndex = 2;
+            this.btn_newService_add.Text = "Додати";
+            this.btn_newService_add.UseVisualStyleBackColor = true;
+            this.btn_newService_add.Click += new System.EventHandler(this.btn_newService_add_Click);
+            // 
+            // lbl_newService_price
+            // 
+            this.lbl_newService_price.AutoSize = true;
+            this.lbl_newService_price.Location = new System.Drawing.Point(6, 55);
+            this.lbl_newService_price.Name = "lbl_newService_price";
+            this.lbl_newService_price.Size = new System.Drawing.Size(29, 13);
+            this.lbl_newService_price.TabIndex = 1;
+            this.lbl_newService_price.Text = "Ціна";
+            // 
+            // lbl_newService_name
+            // 
+            this.lbl_newService_name.AutoSize = true;
+            this.lbl_newService_name.Location = new System.Drawing.Point(6, 16);
+            this.lbl_newService_name.Name = "lbl_newService_name";
+            this.lbl_newService_name.Size = new System.Drawing.Size(39, 13);
+            this.lbl_newService_name.TabIndex = 0;
+            this.lbl_newService_name.Text = "Назва";
+            // 
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
@@ -425,6 +701,15 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tab_other.ResumeLayout(false);
+            this.gb_updPost.ResumeLayout(false);
+            this.gb_updPost.PerformLayout();
+            this.gb_updService.ResumeLayout(false);
+            this.gb_updService.PerformLayout();
+            this.gb_newPost.ResumeLayout(false);
+            this.gb_newPost.PerformLayout();
+            this.gb_newService.ResumeLayout(false);
+            this.gb_newService.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +751,30 @@
         private System.Windows.Forms.Button btn_empl_cancel;
         private System.Windows.Forms.Button btn_empl_approve;
         private System.Windows.Forms.Button btn_empl_update;
+        private System.Windows.Forms.TabPage tab_other;
+        private System.Windows.Forms.GroupBox gb_updPost;
+        private System.Windows.Forms.ComboBox cb_updPost_name;
+        private System.Windows.Forms.TextBox tb_updPost_salary;
+        private System.Windows.Forms.Button btn_updPost_upd;
+        private System.Windows.Forms.Label lbl_updPost_salary;
+        private System.Windows.Forms.Label lbl_updPost_name;
+        private System.Windows.Forms.GroupBox gb_updService;
+        private System.Windows.Forms.ComboBox cb_updService_name;
+        private System.Windows.Forms.TextBox tb_updService_price;
+        private System.Windows.Forms.Button btn_updService_upd;
+        private System.Windows.Forms.Label lbl_updService_price;
+        private System.Windows.Forms.Label lbl_udpService_name;
+        private System.Windows.Forms.GroupBox gb_newPost;
+        private System.Windows.Forms.TextBox tb_newPost_salary;
+        private System.Windows.Forms.TextBox tb_newPost_name;
+        private System.Windows.Forms.Button btn_newPost_add;
+        private System.Windows.Forms.Label lbl_newPost_salary;
+        private System.Windows.Forms.Label lbl_newPost_name;
+        private System.Windows.Forms.GroupBox gb_newService;
+        private System.Windows.Forms.TextBox tb_newService_price;
+        private System.Windows.Forms.TextBox tb_newService_name;
+        private System.Windows.Forms.Button btn_newService_add;
+        private System.Windows.Forms.Label lbl_newService_price;
+        private System.Windows.Forms.Label lbl_newService_name;
     }
 }
