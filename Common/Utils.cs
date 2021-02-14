@@ -34,5 +34,21 @@ namespace CosmeticSalon.Common
 
             return (Types.AccountType)id;
         }
+
+        static public bool getIDFromString(string str, out int value)
+        {
+            return int.TryParse(str.Substring(0, str.IndexOf(":")), out value);
+        }
+
+        static public string getIDBodyFromString(string str)
+        {
+            int deviderIdx = str.IndexOf(":");
+            if (deviderIdx + 1 != str.Length - 1)
+            {
+                return str.Substring(deviderIdx+1, str.Length-deviderIdx-1).Trim();
+            }
+            return "";
+            
+        }
     }
 }

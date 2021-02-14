@@ -11,7 +11,7 @@ namespace CosmeticSalon.MainForms
                 //form.Text = "Hello from Admin";
                 //form.lbl_test.Text = "Hello from Admin";
                 form.tabControl_main.SelectTab("tab_employees");
-                form.initRegistrationTab(form);
+                form.initEmployeesTab(form);
             }
         }
     }

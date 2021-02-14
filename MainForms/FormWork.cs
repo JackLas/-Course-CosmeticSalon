@@ -43,32 +43,5 @@ namespace CosmeticSalon.MainForms
             isAppExit = false;
             this.Close();
         }
-
-        private void initEmployeesList()
-        {
-            lb_employees.Items.Clear();
-            foreach (string str in 
-                DBPresentation.instance().getStrListOfEmployees(
-                    rbtn_active.Checked, 
-                    tb_employeesSearch.Text.Length > 0 ? tb_employeesSearch.Text : null))
-            {
-               lb_employees.Items.Add(str);
-            }
-        }
-
-        private void initRegistrationTab(FormWork form)
-        {
-            initEmployeesList();
-        }
-
-        private void btn_search_Click(object sender, System.EventArgs e)
-        {
-            initEmployeesList();
-        }
-
-        private void rbtn_active_CheckedChanged(object sender, System.EventArgs e)
-        {
-            initEmployeesList();
-        }
     }
 }

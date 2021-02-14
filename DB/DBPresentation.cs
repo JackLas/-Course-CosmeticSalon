@@ -46,5 +46,35 @@ namespace CosmeticSalon.DB
         {
             return db.getStrListOfEmployees(activatedAccounts, searchStr);
         }
+
+        public Employee getEmployeeByID(int id)
+        {
+            return db.getEmployeeByID(id);
+        }
+
+        public int getPostBaseSalaryByName(string postName)
+        {
+            return db.getPostBaseSalaryByName(postName);
+        }
+
+        public string[] getPostsStringList()
+        {
+            return db.getPostsStringList();
+        }
+
+        public void aproveRegistration(int userID, int postID, int salaryBonus)
+        {
+            db.aproveRegistration(userID, postID, salaryBonus);
+        }
+
+        public void cancelRegistration(int userID)
+        {
+            db.cancelRegistration(userID);
+        }
+
+        public void updateEmployee(Employee empl)
+        {
+            db.updateEmployee(empl);
+        }
     }
 }

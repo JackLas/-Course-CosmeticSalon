@@ -237,8 +237,7 @@ namespace CosmeticSalon.DB
                 }
                 else if (searchStr != null)
                 {
-                    //var par = new NpgsqlParameter()
-                    query.Parameters.AddWithValue("search", "%"+searchStr+"%");
+                    query.Parameters.AddWithValue("search", "%" + searchStr + "%");
                 }
 
 
@@ -258,6 +257,143 @@ namespace CosmeticSalon.DB
             }
 
             return result;
+        }
+
+        public Employee getEmployeeByID(int id)
+        {
+            Employee result = new Employee();
+
+            var sql = @"SELECT ""Employees"".*, ""Posts"".name as ""post"" FROM ""Employees""
+                        INNER JOIN ""Posts"" ON ""Employees"".id_post=""Posts"".id
+                        WHERE ""Employees"".id=@id";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", id);
+                var reader = query.ExecuteReader();
+                if (reader.Read())
+                {
+                    result.ID = id;
+                    result.Surname = (string)reader["surname"];
+                    result.Name = (string)reader["name"];
+                    result.MiddleName = (reader.IsDBNull(3) ? "" : (string)reader["middleName"]);
+                    result.Post = (string)reader["post"];
+                    result.PostID = (int)reader["id_post"];
+                    result.Phone = (reader.IsDBNull(6) ? "" : (string)reader["phone"]);
+                    result.Expirience = reader.IsDBNull(7) ? new string[0] : (string[])reader["exp"];
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+
+        public int getPostBaseSalaryByName(string postName)
+        {
+            int result = 0;
+            string sql = @"SELECT ""Posts"".""baseSalary"" FROM ""Posts"" WHERE ""Posts"".name=@name";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("name", postName);
+                var reader = query.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    result = (int)reader[0];
+                }
+
+                reader.Close();
+            }
+
+            return result;
+        }
+
+        public string[] getPostsStringList()
+        {
+            string sql = @"SELECT * FROM ""Posts"" ORDER BY id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                List<string> rows = new List<string>();
+
+                var reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    rows.Add( ((int)reader[0]).ToString()+": "+(string)reader[1] );
+                }
+                reader.Close();
+
+                return rows.ToArray();
+            }
+        }
+
+        public void aproveRegistration(int userID, int postID, int salaryBonus)
+        {
+            string sqlUpdateEmpl = @"
+                UPDATE ""Employees"" 
+                SET id_post=@postID, ""salaryBonus""=@bonus
+                WHERE id=@id";
+            using (var query = new NpgsqlCommand(sqlUpdateEmpl, db))
+            {
+                query.Parameters.AddWithValue("postID", postID);
+                query.Parameters.AddWithValue("bonus", salaryBonus);
+                query.Parameters.AddWithValue("id", userID);
+                query.ExecuteNonQuery();
+            }
+
+            string sqlUpdateAcc = @"
+                    UPDATE ""Accounts"" SET activated=@status 
+                    WHERE id_employees=@id";
+            using (var query = new NpgsqlCommand(sqlUpdateAcc, db))
+            {
+                query.Parameters.AddWithValue("status", true);
+                query.Parameters.AddWithValue("id", userID);
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public void cancelRegistration(int userID)
+        {
+            string delAccSql = @"DELETE FROM ""Accounts"" WHERE id_employees=@id";
+            using (var query = new NpgsqlCommand(delAccSql, db))
+            {
+                query.Parameters.AddWithValue("id", userID);
+                query.ExecuteNonQuery();
+            }
+            string delEmplSql = @"DELETE FROM ""Employees"" WHERE id=@id";
+            using (var query = new NpgsqlCommand(delEmplSql, db))
+            {
+                query.Parameters.AddWithValue("id", userID);
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public void updateEmployee(Employee empl)
+        {
+            string sql = @"
+                UPDATE ""Employees"" SET surname=@surname,
+                name=@name,
+                ""middleName""=@middleName,
+                id_post=@id_post,
+                ""salaryBonus""=@salaryBonus,
+                phone=@phone,
+                exp=@exp
+                WHERE id=@id";
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", empl.ID);
+                query.Parameters.AddWithValue("surname", empl.Surname);
+                query.Parameters.AddWithValue("name", empl.Name);
+                query.Parameters.AddWithValue("middleName", empl.MiddleName);
+                query.Parameters.AddWithValue("id_post", empl.PostID);
+                query.Parameters.AddWithValue("salaryBonus", empl.SalaryBonus);
+                query.Parameters.AddWithValue("phone", empl.Phone);
+                var expPar = new NpgsqlParameter("exp", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text);
+                expPar.Value = empl.Expirience;
+                query.Parameters.Add(expPar);
+
+                query.ExecuteNonQuery();
+            }
         }
     }
 }

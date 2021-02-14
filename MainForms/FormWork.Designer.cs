@@ -31,19 +31,40 @@
             this.tabControl_main = new System.Windows.Forms.TabControl();
             this.tab_schedule = new System.Windows.Forms.TabPage();
             this.tab_salary = new System.Windows.Forms.TabPage();
+            this.tab_employees = new System.Windows.Forms.TabPage();
+            this.btn_empl_cancel = new System.Windows.Forms.Button();
+            this.btn_empl_approve = new System.Windows.Forms.Button();
+            this.btn_empl_update = new System.Windows.Forms.Button();
+            this.cb_posts = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tb_empl_salaryBonus = new System.Windows.Forms.TextBox();
+            this.tb_empl_salaryBase = new System.Windows.Forms.TextBox();
+            this.lbl_salaryBonus = new System.Windows.Forms.Label();
+            this.lbl_salaryBase = new System.Windows.Forms.Label();
+            this.lbl_empl_post = new System.Windows.Forms.Label();
+            this.rtb_empl_exp = new System.Windows.Forms.RichTextBox();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.tb_empl_phone = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtn_unactiveList = new System.Windows.Forms.RadioButton();
+            this.rbtn_activeList = new System.Windows.Forms.RadioButton();
+            this.tb_empl_middleName = new System.Windows.Forms.TextBox();
+            this.tb_empl_name = new System.Windows.Forms.TextBox();
+            this.tb_employeesSearch = new System.Windows.Forms.TextBox();
+            this.tb_empl_surname = new System.Windows.Forms.TextBox();
+            this.lb_employees = new System.Windows.Forms.ListBox();
+            this.lbl_empl_exp = new System.Windows.Forms.Label();
+            this.lbl_empl_surname = new System.Windows.Forms.Label();
+            this.lbl_empl_phone = new System.Windows.Forms.Label();
+            this.lbl_empl_name = new System.Windows.Forms.Label();
+            this.lbl_empl_middleName = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_post = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.tab_employees = new System.Windows.Forms.TabPage();
-            this.lb_employees = new System.Windows.Forms.ListBox();
-            this.tb_employeesSearch = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtn_active = new System.Windows.Forms.RadioButton();
-            this.rbtn_unactiveList = new System.Windows.Forms.RadioButton();
-            this.btn_search = new System.Windows.Forms.Button();
             this.tabControl_main.SuspendLayout();
             this.tab_employees.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +98,268 @@
             this.tab_salary.TabIndex = 1;
             this.tab_salary.Text = "Зарплата";
             this.tab_salary.UseVisualStyleBackColor = true;
+            // 
+            // tab_employees
+            // 
+            this.tab_employees.BackColor = System.Drawing.Color.Azure;
+            this.tab_employees.Controls.Add(this.btn_empl_cancel);
+            this.tab_employees.Controls.Add(this.btn_empl_approve);
+            this.tab_employees.Controls.Add(this.btn_empl_update);
+            this.tab_employees.Controls.Add(this.cb_posts);
+            this.tab_employees.Controls.Add(this.groupBox2);
+            this.tab_employees.Controls.Add(this.lbl_empl_post);
+            this.tab_employees.Controls.Add(this.rtb_empl_exp);
+            this.tab_employees.Controls.Add(this.btn_search);
+            this.tab_employees.Controls.Add(this.tb_empl_phone);
+            this.tab_employees.Controls.Add(this.groupBox1);
+            this.tab_employees.Controls.Add(this.tb_empl_middleName);
+            this.tab_employees.Controls.Add(this.tb_empl_name);
+            this.tab_employees.Controls.Add(this.tb_employeesSearch);
+            this.tab_employees.Controls.Add(this.tb_empl_surname);
+            this.tab_employees.Controls.Add(this.lb_employees);
+            this.tab_employees.Controls.Add(this.lbl_empl_exp);
+            this.tab_employees.Controls.Add(this.lbl_empl_surname);
+            this.tab_employees.Controls.Add(this.lbl_empl_phone);
+            this.tab_employees.Controls.Add(this.lbl_empl_name);
+            this.tab_employees.Controls.Add(this.lbl_empl_middleName);
+            this.tab_employees.Location = new System.Drawing.Point(4, 22);
+            this.tab_employees.Name = "tab_employees";
+            this.tab_employees.Size = new System.Drawing.Size(800, 387);
+            this.tab_employees.TabIndex = 2;
+            this.tab_employees.Text = "Співробітники";
+            // 
+            // btn_empl_cancel
+            // 
+            this.btn_empl_cancel.Location = new System.Drawing.Point(555, 299);
+            this.btn_empl_cancel.Name = "btn_empl_cancel";
+            this.btn_empl_cancel.Size = new System.Drawing.Size(120, 23);
+            this.btn_empl_cancel.TabIndex = 30;
+            this.btn_empl_cancel.Text = "Скасувати";
+            this.btn_empl_cancel.UseVisualStyleBackColor = true;
+            this.btn_empl_cancel.Click += new System.EventHandler(this.btn_empl_cancel_Click);
+            // 
+            // btn_empl_approve
+            // 
+            this.btn_empl_approve.Location = new System.Drawing.Point(388, 299);
+            this.btn_empl_approve.Name = "btn_empl_approve";
+            this.btn_empl_approve.Size = new System.Drawing.Size(120, 23);
+            this.btn_empl_approve.TabIndex = 29;
+            this.btn_empl_approve.Text = "Затвердити";
+            this.btn_empl_approve.UseVisualStyleBackColor = true;
+            this.btn_empl_approve.Click += new System.EventHandler(this.btn_empl_approve_Click);
+            // 
+            // btn_empl_update
+            // 
+            this.btn_empl_update.Location = new System.Drawing.Point(471, 299);
+            this.btn_empl_update.Name = "btn_empl_update";
+            this.btn_empl_update.Size = new System.Drawing.Size(120, 23);
+            this.btn_empl_update.TabIndex = 28;
+            this.btn_empl_update.Text = "Оновити";
+            this.btn_empl_update.UseVisualStyleBackColor = true;
+            this.btn_empl_update.Click += new System.EventHandler(this.btn_empl_update_Click);
+            // 
+            // cb_posts
+            // 
+            this.cb_posts.FormattingEnabled = true;
+            this.cb_posts.Location = new System.Drawing.Point(345, 204);
+            this.cb_posts.Name = "cb_posts";
+            this.cb_posts.Size = new System.Drawing.Size(179, 21);
+            this.cb_posts.TabIndex = 27;
+            this.cb_posts.SelectedIndexChanged += new System.EventHandler(this.cb_posts_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tb_empl_salaryBonus);
+            this.groupBox2.Controls.Add(this.tb_empl_salaryBase);
+            this.groupBox2.Controls.Add(this.lbl_salaryBonus);
+            this.groupBox2.Controls.Add(this.lbl_salaryBase);
+            this.groupBox2.Location = new System.Drawing.Point(530, 188);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(187, 67);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Заробітня плата";
+            // 
+            // tb_empl_salaryBonus
+            // 
+            this.tb_empl_salaryBonus.Location = new System.Drawing.Point(55, 39);
+            this.tb_empl_salaryBonus.Name = "tb_empl_salaryBonus";
+            this.tb_empl_salaryBonus.Size = new System.Drawing.Size(116, 20);
+            this.tb_empl_salaryBonus.TabIndex = 27;
+            // 
+            // tb_empl_salaryBase
+            // 
+            this.tb_empl_salaryBase.Enabled = false;
+            this.tb_empl_salaryBase.Location = new System.Drawing.Point(55, 13);
+            this.tb_empl_salaryBase.Name = "tb_empl_salaryBase";
+            this.tb_empl_salaryBase.Size = new System.Drawing.Size(116, 20);
+            this.tb_empl_salaryBase.TabIndex = 26;
+            // 
+            // lbl_salaryBonus
+            // 
+            this.lbl_salaryBonus.AutoSize = true;
+            this.lbl_salaryBonus.Location = new System.Drawing.Point(6, 42);
+            this.lbl_salaryBonus.Name = "lbl_salaryBonus";
+            this.lbl_salaryBonus.Size = new System.Drawing.Size(37, 13);
+            this.lbl_salaryBonus.TabIndex = 25;
+            this.lbl_salaryBonus.Text = "Бонус";
+            // 
+            // lbl_salaryBase
+            // 
+            this.lbl_salaryBase.AutoSize = true;
+            this.lbl_salaryBase.Location = new System.Drawing.Point(6, 16);
+            this.lbl_salaryBase.Name = "lbl_salaryBase";
+            this.lbl_salaryBase.Size = new System.Drawing.Size(43, 13);
+            this.lbl_salaryBase.TabIndex = 24;
+            this.lbl_salaryBase.Text = "Ставка";
+            // 
+            // lbl_empl_post
+            // 
+            this.lbl_empl_post.AutoSize = true;
+            this.lbl_empl_post.Location = new System.Drawing.Point(342, 188);
+            this.lbl_empl_post.Name = "lbl_empl_post";
+            this.lbl_empl_post.Size = new System.Drawing.Size(45, 13);
+            this.lbl_empl_post.TabIndex = 23;
+            this.lbl_empl_post.Text = "Посада";
+            // 
+            // rtb_empl_exp
+            // 
+            this.rtb_empl_exp.Location = new System.Drawing.Point(345, 128);
+            this.rtb_empl_exp.Name = "rtb_empl_exp";
+            this.rtb_empl_exp.Size = new System.Drawing.Size(372, 48);
+            this.rtb_empl_exp.TabIndex = 22;
+            this.rtb_empl_exp.Text = "";
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(225, 3);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(30, 20);
+            this.btn_search.TabIndex = 3;
+            this.btn_search.Text = "OK";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // tb_empl_phone
+            // 
+            this.tb_empl_phone.Location = new System.Drawing.Point(345, 76);
+            this.tb_empl_phone.Name = "tb_empl_phone";
+            this.tb_empl_phone.Size = new System.Drawing.Size(179, 20);
+            this.tb_empl_phone.TabIndex = 21;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbtn_unactiveList);
+            this.groupBox1.Controls.Add(this.rbtn_activeList);
+            this.groupBox1.Location = new System.Drawing.Point(12, 347);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(243, 37);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            // 
+            // rbtn_unactiveList
+            // 
+            this.rbtn_unactiveList.AutoSize = true;
+            this.rbtn_unactiveList.Location = new System.Drawing.Point(112, 14);
+            this.rbtn_unactiveList.Name = "rbtn_unactiveList";
+            this.rbtn_unactiveList.Size = new System.Drawing.Size(125, 17);
+            this.rbtn_unactiveList.TabIndex = 1;
+            this.rbtn_unactiveList.Text = "Очікують реєстрації";
+            this.rbtn_unactiveList.UseVisualStyleBackColor = true;
+            this.rbtn_unactiveList.CheckedChanged += new System.EventHandler(this.rbtn_unactiveList_CheckedChanged);
+            // 
+            // rbtn_activeList
+            // 
+            this.rbtn_activeList.AutoSize = true;
+            this.rbtn_activeList.Location = new System.Drawing.Point(6, 14);
+            this.rbtn_activeList.Name = "rbtn_activeList";
+            this.rbtn_activeList.Size = new System.Drawing.Size(63, 17);
+            this.rbtn_activeList.TabIndex = 0;
+            this.rbtn_activeList.Text = "Активні";
+            this.rbtn_activeList.UseVisualStyleBackColor = true;
+            this.rbtn_activeList.CheckedChanged += new System.EventHandler(this.rbtn_active_CheckedChanged);
+            // 
+            // tb_empl_middleName
+            // 
+            this.tb_empl_middleName.Location = new System.Drawing.Point(597, 25);
+            this.tb_empl_middleName.Name = "tb_empl_middleName";
+            this.tb_empl_middleName.Size = new System.Drawing.Size(120, 20);
+            this.tb_empl_middleName.TabIndex = 20;
+            // 
+            // tb_empl_name
+            // 
+            this.tb_empl_name.Location = new System.Drawing.Point(471, 25);
+            this.tb_empl_name.Name = "tb_empl_name";
+            this.tb_empl_name.Size = new System.Drawing.Size(120, 20);
+            this.tb_empl_name.TabIndex = 19;
+            // 
+            // tb_employeesSearch
+            // 
+            this.tb_employeesSearch.Location = new System.Drawing.Point(12, 3);
+            this.tb_employeesSearch.Name = "tb_employeesSearch";
+            this.tb_employeesSearch.Size = new System.Drawing.Size(207, 20);
+            this.tb_employeesSearch.TabIndex = 1;
+            // 
+            // tb_empl_surname
+            // 
+            this.tb_empl_surname.Location = new System.Drawing.Point(345, 25);
+            this.tb_empl_surname.Name = "tb_empl_surname";
+            this.tb_empl_surname.Size = new System.Drawing.Size(120, 20);
+            this.tb_empl_surname.TabIndex = 18;
+            // 
+            // lb_employees
+            // 
+            this.lb_employees.FormattingEnabled = true;
+            this.lb_employees.Location = new System.Drawing.Point(12, 26);
+            this.lb_employees.Name = "lb_employees";
+            this.lb_employees.Size = new System.Drawing.Size(243, 316);
+            this.lb_employees.TabIndex = 0;
+            this.lb_employees.SelectedIndexChanged += new System.EventHandler(this.lb_employees_SelectedIndexChanged);
+            // 
+            // lbl_empl_exp
+            // 
+            this.lbl_empl_exp.AutoSize = true;
+            this.lbl_empl_exp.Location = new System.Drawing.Point(342, 112);
+            this.lbl_empl_exp.Name = "lbl_empl_exp";
+            this.lbl_empl_exp.Size = new System.Drawing.Size(80, 13);
+            this.lbl_empl_exp.TabIndex = 17;
+            this.lbl_empl_exp.Text = "Досвід роботи";
+            // 
+            // lbl_empl_surname
+            // 
+            this.lbl_empl_surname.AutoSize = true;
+            this.lbl_empl_surname.Location = new System.Drawing.Point(342, 9);
+            this.lbl_empl_surname.Name = "lbl_empl_surname";
+            this.lbl_empl_surname.Size = new System.Drawing.Size(56, 13);
+            this.lbl_empl_surname.TabIndex = 13;
+            this.lbl_empl_surname.Text = "Прізвище";
+            // 
+            // lbl_empl_phone
+            // 
+            this.lbl_empl_phone.AutoSize = true;
+            this.lbl_empl_phone.Location = new System.Drawing.Point(342, 60);
+            this.lbl_empl_phone.Name = "lbl_empl_phone";
+            this.lbl_empl_phone.Size = new System.Drawing.Size(52, 13);
+            this.lbl_empl_phone.TabIndex = 16;
+            this.lbl_empl_phone.Text = "Телефон";
+            // 
+            // lbl_empl_name
+            // 
+            this.lbl_empl_name.AutoSize = true;
+            this.lbl_empl_name.Location = new System.Drawing.Point(468, 9);
+            this.lbl_empl_name.Name = "lbl_empl_name";
+            this.lbl_empl_name.Size = new System.Drawing.Size(26, 13);
+            this.lbl_empl_name.TabIndex = 14;
+            this.lbl_empl_name.Text = "Ім\'я";
+            // 
+            // lbl_empl_middleName
+            // 
+            this.lbl_empl_middleName.AutoSize = true;
+            this.lbl_empl_middleName.Location = new System.Drawing.Point(594, 9);
+            this.lbl_empl_middleName.Name = "lbl_empl_middleName";
+            this.lbl_empl_middleName.Size = new System.Drawing.Size(67, 13);
+            this.lbl_empl_middleName.TabIndex = 15;
+            this.lbl_empl_middleName.Text = "По-батькові";
             // 
             // lbl_name
             // 
@@ -118,77 +401,6 @@
             this.btn_exit.UseVisualStyleBackColor = false;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // tab_employees
-            // 
-            this.tab_employees.Controls.Add(this.btn_search);
-            this.tab_employees.Controls.Add(this.groupBox1);
-            this.tab_employees.Controls.Add(this.tb_employeesSearch);
-            this.tab_employees.Controls.Add(this.lb_employees);
-            this.tab_employees.Location = new System.Drawing.Point(4, 22);
-            this.tab_employees.Name = "tab_employees";
-            this.tab_employees.Size = new System.Drawing.Size(800, 387);
-            this.tab_employees.TabIndex = 2;
-            this.tab_employees.Text = "Співробітники";
-            this.tab_employees.UseVisualStyleBackColor = true;
-            // 
-            // lb_employees
-            // 
-            this.lb_employees.FormattingEnabled = true;
-            this.lb_employees.Location = new System.Drawing.Point(12, 26);
-            this.lb_employees.Name = "lb_employees";
-            this.lb_employees.Size = new System.Drawing.Size(243, 316);
-            this.lb_employees.TabIndex = 0;
-            // 
-            // tb_employeesSearch
-            // 
-            this.tb_employeesSearch.Location = new System.Drawing.Point(12, 3);
-            this.tb_employeesSearch.Name = "tb_employeesSearch";
-            this.tb_employeesSearch.Size = new System.Drawing.Size(207, 20);
-            this.tb_employeesSearch.TabIndex = 1;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbtn_unactiveList);
-            this.groupBox1.Controls.Add(this.rbtn_active);
-            this.groupBox1.Location = new System.Drawing.Point(12, 347);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 37);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // rbtn_active
-            // 
-            this.rbtn_active.AutoSize = true;
-            this.rbtn_active.Checked = true;
-            this.rbtn_active.Location = new System.Drawing.Point(6, 14);
-            this.rbtn_active.Name = "rbtn_active";
-            this.rbtn_active.Size = new System.Drawing.Size(63, 17);
-            this.rbtn_active.TabIndex = 0;
-            this.rbtn_active.TabStop = true;
-            this.rbtn_active.Text = "Активні";
-            this.rbtn_active.UseVisualStyleBackColor = true;
-            this.rbtn_active.CheckedChanged += new System.EventHandler(this.rbtn_active_CheckedChanged);
-            // 
-            // rbtn_unactiveList
-            // 
-            this.rbtn_unactiveList.AutoSize = true;
-            this.rbtn_unactiveList.Location = new System.Drawing.Point(112, 14);
-            this.rbtn_unactiveList.Name = "rbtn_unactiveList";
-            this.rbtn_unactiveList.Size = new System.Drawing.Size(125, 17);
-            this.rbtn_unactiveList.TabIndex = 1;
-            this.rbtn_unactiveList.Text = "Очікують реєстрації";
-            this.rbtn_unactiveList.UseVisualStyleBackColor = true;
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(225, 3);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(30, 20);
-            this.btn_search.TabIndex = 3;
-            this.btn_search.Text = "OK";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
-            // 
             // FormWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +421,8 @@
             this.tabControl_main.ResumeLayout(false);
             this.tab_employees.ResumeLayout(false);
             this.tab_employees.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -229,8 +443,28 @@
         private System.Windows.Forms.ListBox lb_employees;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbtn_unactiveList;
-        private System.Windows.Forms.RadioButton rbtn_active;
+        private System.Windows.Forms.RadioButton rbtn_activeList;
         private System.Windows.Forms.TextBox tb_employeesSearch;
         private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.RichTextBox rtb_empl_exp;
+        private System.Windows.Forms.TextBox tb_empl_phone;
+        private System.Windows.Forms.TextBox tb_empl_middleName;
+        private System.Windows.Forms.TextBox tb_empl_name;
+        private System.Windows.Forms.TextBox tb_empl_surname;
+        private System.Windows.Forms.Label lbl_empl_exp;
+        private System.Windows.Forms.Label lbl_empl_surname;
+        private System.Windows.Forms.Label lbl_empl_phone;
+        private System.Windows.Forms.Label lbl_empl_name;
+        private System.Windows.Forms.Label lbl_empl_middleName;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbl_salaryBonus;
+        private System.Windows.Forms.Label lbl_salaryBase;
+        private System.Windows.Forms.Label lbl_empl_post;
+        private System.Windows.Forms.TextBox tb_empl_salaryBonus;
+        private System.Windows.Forms.TextBox tb_empl_salaryBase;
+        private System.Windows.Forms.ComboBox cb_posts;
+        private System.Windows.Forms.Button btn_empl_cancel;
+        private System.Windows.Forms.Button btn_empl_approve;
+        private System.Windows.Forms.Button btn_empl_update;
     }
 }

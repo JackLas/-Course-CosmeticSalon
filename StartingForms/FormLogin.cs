@@ -51,6 +51,7 @@ namespace CosmeticSalon
 
         private void FormLogin_Shown(object sender, EventArgs e)
         {
+            //return;
             // -- for testing purpose --
             tb_login.Text = "admin";
             tb_password.Text = "admin";

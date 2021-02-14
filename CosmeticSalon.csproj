@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Account.cs" />
+    <Compile Include="Common\Employee.cs" />
     <Compile Include="Common\IMainWindowInitializer.cs" />
     <Compile Include="Common\Types.cs" />
     <Compile Include="Common\Utils.cs" />
@@ -65,6 +66,9 @@
     </Compile>
     <Compile Include="MainForms\FormWork.Designer.cs">
       <DependentUpon>FormWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\FormWork_employeesTab.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForms\WorkerFormInitializer.cs">
       <SubType>Form</SubType>
