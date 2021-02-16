@@ -51,6 +51,7 @@
     <Compile Include="Common\Client.cs" />
     <Compile Include="Common\Employee.cs" />
     <Compile Include="Common\IMainWindowInitializer.cs" />
+    <Compile Include="Common\Order.cs" />
     <Compile Include="Common\Types.cs" />
     <Compile Include="Common\Utils.cs" />
     <Compile Include="DB\DBPresentation.cs" />
@@ -75,6 +76,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForms\FormWork_otherTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\FormWork_scheduleTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForms\WorkerFormInitializer.cs">

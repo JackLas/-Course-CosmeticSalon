@@ -24,16 +24,6 @@ namespace CosmeticSalon.Common
 
         static public Types.AccountType accountTypeFromDBID(int id)
         {
-            /*
-            switch (id)
-            {
-                case 2:
-                    return Types.AccountType.ADMINISTRATOR;
-                default:
-                    return Types.AccountType.UNKNOWN;
-            }
-            */
-
             return (Types.AccountType)id;
         }
 

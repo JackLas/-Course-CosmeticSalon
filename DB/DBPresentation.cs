@@ -1,4 +1,5 @@
 ﻿using CosmeticSalon.Common;
+using System;
 using System.Collections.Generic;
 
 namespace CosmeticSalon.DB
@@ -135,6 +136,31 @@ namespace CosmeticSalon.DB
         public bool tryToAddNewClient(Client client)
         {
             return db.tryToAddNewClient(client);
+        }
+
+        public string[] getStrListOfWorkers()
+        {
+            return db.getStrListOfWorkers();
+        }
+
+        public Client findFirstClient(string search)
+        {
+            return db.findFirstClient(search);
+        }
+
+        public void newOrder(int idWorker, int idClient, int idService, string description, int addPrice, DateTime dtStart, int durationMins)
+        {
+            db.newOrder(idWorker, idClient, idService, description, addPrice, dtStart, durationMins);
+        }
+
+        public int getClientIDByPhone(string phone)
+        {
+            return db.getClientIDByPhone(phone);
+        }
+
+        public Order[] getOrderForWorkerByDate(int workerID, DateTime dt)
+        {
+            return db.getOrderForWorkerByDate(workerID, dt);
         }
     }
 }

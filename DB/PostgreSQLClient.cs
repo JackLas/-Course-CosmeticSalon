@@ -71,10 +71,9 @@ namespace CosmeticSalon.DB
                     acc.Phone = employee.IsDBNull(5) ? "" : (string)employee["phone"];
                     acc.SalaryBonus = (int)employee["salaryBonus"];
                     acc.Expirience = employee.IsDBNull(7) ? new string[0] : (string[])employee["exp"];
-
-                    employee.Close();
                 }
 
+                employee.Close();
                 return acc;
             }
         }
@@ -600,6 +599,160 @@ namespace CosmeticSalon.DB
                 query.Parameters.AddWithValue("phone", client.Phone);
                 query.ExecuteNonQuery();
                 return true;
+            }
+        }
+
+        public string[] getStrListOfWorkers()
+        {
+            string sql = @"SELECT ""Employees"".id, ""Employees"".surname, ""Employees"".name, ""Posts"".name 
+                           FROM ""Employees"" INNER JOIN ""Posts"" ON ""Posts"".id=""Employees"".id_post
+                           WHERE id_post<>0 AND id_post<>2 AND id_post<>4
+                           ORDER BY id";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                List<string> rows = new List<string>();
+                var reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    rows.Add(
+                        ((int)reader[0]).ToString() + ": " + 
+                        (string)reader[1] + " " + (string)reader[2] + ", " + (string)reader[3]);
+                }
+
+                reader.Close();
+
+                return rows.ToArray();
+            }
+        }
+
+        public Client findFirstClient(string search)
+        {
+            int id = 0;
+            string sql = @"SELECT * FROM ""Clients""";
+            if (search != null)
+            {
+                sql += " WHERE ";
+
+                if (int.TryParse(search, out id))
+                {
+                    sql += @" id=@search OR phone LIKE @phoneSearch";
+                }
+                else
+                {
+                    id = -1;
+                    sql += @" ""fullName"" LIKE @search OR ""phone"" LIKE @search";
+                }
+            }
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                if (search != null)
+                {
+                    if (id >= 0)
+                    {
+                        query.Parameters.AddWithValue("search", id);
+                        query.Parameters.AddWithValue("phoneSearch", "%" + search + "%");
+                    }
+                    else query.Parameters.AddWithValue("search", "%" + search + "%");
+                }
+
+                var reader = query.ExecuteReader();
+                Client client = null;
+                if (reader.Read())
+                {
+                    client = new Client();
+
+                    client.ID = (int)reader[0];
+                    client.FullName = (string)reader[1];
+                    client.Phone = (string)reader[2];
+                }
+                reader.Close();
+
+                return client;
+            }
+        }
+
+        public void newOrder(int idWorker, int idClient, int idService, string description, int addPrice, DateTime dtStart, int durationMins)
+        {
+            string sql = @"INSERT INTO ""Orders"" 
+                         (id_worker, id_client, id_service, description, ""addPrice"", ""dateStart"", duration)
+                         VALUES (@idWorker, @idClient, @idService, @description, @addPrice, @dtStart, @duration)";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("idWorker", idWorker);
+                query.Parameters.AddWithValue("idClient", idClient);
+                query.Parameters.AddWithValue("idService", idService);
+                query.Parameters.AddWithValue("description", description);
+                query.Parameters.AddWithValue("addPrice", addPrice);
+                query.Parameters.AddWithValue("dtStart", dtStart);
+                query.Parameters.AddWithValue("duration", durationMins);
+
+                query.ExecuteNonQuery();
+            }
+        }
+
+        public int getClientIDByPhone(string phone)
+        {
+            string sql = @"SELECT id FROM ""Clients"" WHERE phone=@phone";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("phone", phone);
+
+                var reader = query.ExecuteReader();
+                int id = -1;
+                if (reader.Read())
+                {
+                    id = (int)reader[0];
+                }
+
+                reader.Close();
+                return id;
+            }
+        }
+
+        public Order[] getOrderForWorkerByDate(int workerID, DateTime dt)
+        {
+            string sql = @"
+                SELECT ""Clients"".""fullName"", ""Services"".name, ""Services"".price, ""Orders"".""addPrice"", 
+                ""Orders"".""dateStart"", ""Orders"".duration, ""Orders"".description
+                FROM ""Orders""
+                INNER JOIN ""Clients"" ON ""Orders"".id_client = ""Clients"".id
+                INNER JOIN ""Services"" ON ""Orders"".id_service = ""Services"".id
+                WHERE ""Orders"".id_worker=@worker AND ""Orders"".""dateStart"">@dayStart AND ""Orders"".""dateStart""<@dayEnd
+                ORDER BY ""Orders"".""dateStart""";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("worker", workerID);
+                DateTime dayStart = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
+                DateTime dayEnd = dayStart.AddDays(1);
+                query.Parameters.AddWithValue("dayStart", dayStart);
+                query.Parameters.AddWithValue("dayEnd", dayEnd);
+
+                List<Order> rows = new List<Order>();
+                var reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    Order order = new Order();
+
+                    order.clientName = (string)reader[0];
+                    order.serviceName = (string)reader[1];
+                    order.fullPrice = (int)reader[2] + (int)reader[3];
+
+                    DateTime readOrderStart = (DateTime)reader[4];
+                    int duration = (int)reader[5];
+                    order.dtStart = readOrderStart;
+                    order.dtEnd = readOrderStart.AddMinutes(duration);
+                    order.desc = (string)reader[6];
+
+                    rows.Add(order);
+                }
+                reader.Close();
+                return rows.ToArray();
             }
         }
     }
