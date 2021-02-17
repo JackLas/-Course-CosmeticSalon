@@ -8,11 +8,12 @@ namespace CosmeticSalon.MainForms
         {
             public void Initialize(FormWork form)
             {
-                form.tabControl_main.SelectTab("tab_schedule");
+                form.tabControl_main.SelectTab("tab_employees");
                 form.initEmployeesTab();
                 form.initOtherTab();
                 form.initClientsTab();
                 form.initScheduleTab();
+                form.initSalaryTab();
             }
         }
     }

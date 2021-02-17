@@ -755,5 +755,53 @@ namespace CosmeticSalon.DB
                 return rows.ToArray();
             }
         }
+
+        public int getFullSalaryByID(int workerID)
+        {
+            string sql = @"SELECT ""Employees"".""salaryBonus"", ""Posts"".""baseSalary""
+            FROM ""Employees"" INNER JOIN ""Posts"" ON ""Employees"".id_post=""Posts"".id
+            WHERE ""Employees"".id=@id
+            ";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", workerID);
+
+                var reader = query.ExecuteReader();
+                int result = 0;
+                if  (reader.Read())
+                {
+                    result = (int)reader[0] + (int)reader[1];
+                }
+                reader.Close();
+                return result;
+            }
+        }
+
+        public int getSalaryWorkingBonus(int workerID, DateTime begin, DateTime end)
+        {
+            string sql = @"SELECT ""Orders"".""addPrice"", ""Services"".price 
+            FROM ""Orders"" INNER JOIN ""Services"" ON ""Orders"".id_service=""Services"".id 
+            WHERE ""Orders"".id_worker=@id
+            AND ""Orders"".""dateStart"">=@dt_start AND ""Orders"".""dateStart""<=@dt_end ";
+
+            using (var query = new NpgsqlCommand(sql, db))
+            {
+                query.Parameters.AddWithValue("id", workerID);
+                query.Parameters.AddWithValue("dt_start", begin.Date);
+                query.Parameters.AddWithValue("dt_end", end.Date);
+
+                var reader = query.ExecuteReader();
+                int result = 0;
+
+                while (reader.Read())
+                {
+                    result += (int)reader[0] + (int)reader[1];
+                }
+
+                reader.Close();
+                return result;
+            }
+        }
     }
 }

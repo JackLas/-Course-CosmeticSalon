@@ -64,13 +64,13 @@
             this.lbl_sch_service = new System.Windows.Forms.Label();
             this.tab_salary = new System.Windows.Forms.TabPage();
             this.gb_salary = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_salary_output = new System.Windows.Forms.RichTextBox();
             this.btn_salary_count = new System.Windows.Forms.Button();
             this.gb_salary_tax = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_salary_tax_VZ = new System.Windows.Forms.TextBox();
+            this.tb_salary_tax_PDFO = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lable = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -515,7 +515,7 @@
             // 
             // gb_salary
             // 
-            this.gb_salary.Controls.Add(this.richTextBox1);
+            this.gb_salary.Controls.Add(this.rtb_salary_output);
             this.gb_salary.Controls.Add(this.btn_salary_count);
             this.gb_salary.Controls.Add(this.gb_salary_tax);
             this.gb_salary.Controls.Add(this.dateTimePicker2);
@@ -530,13 +530,13 @@
             this.gb_salary.TabStop = false;
             this.gb_salary.Text = "Розрахунок заробітної плати працівника";
             // 
-            // richTextBox1
+            // rtb_salary_output
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 191);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(316, 159);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.rtb_salary_output.Location = new System.Drawing.Point(9, 191);
+            this.rtb_salary_output.Name = "rtb_salary_output";
+            this.rtb_salary_output.Size = new System.Drawing.Size(316, 159);
+            this.rtb_salary_output.TabIndex = 15;
+            this.rtb_salary_output.Text = "";
             // 
             // btn_salary_count
             // 
@@ -546,13 +546,14 @@
             this.btn_salary_count.TabIndex = 14;
             this.btn_salary_count.Text = "Розрахувати";
             this.btn_salary_count.UseVisualStyleBackColor = true;
+            this.btn_salary_count.Click += new System.EventHandler(this.btn_salary_count_Click);
             // 
             // gb_salary_tax
             // 
             this.gb_salary_tax.Controls.Add(this.label10);
             this.gb_salary_tax.Controls.Add(this.label9);
-            this.gb_salary_tax.Controls.Add(this.textBox2);
-            this.gb_salary_tax.Controls.Add(this.textBox1);
+            this.gb_salary_tax.Controls.Add(this.tb_salary_tax_VZ);
+            this.gb_salary_tax.Controls.Add(this.tb_salary_tax_PDFO);
             this.gb_salary_tax.Controls.Add(this.label8);
             this.gb_salary_tax.Controls.Add(this.lable);
             this.gb_salary_tax.Location = new System.Drawing.Point(88, 58);
@@ -582,21 +583,21 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "%";
             // 
-            // textBox2
+            // tb_salary_tax_VZ
             // 
-            this.textBox2.Location = new System.Drawing.Point(55, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(36, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "1,5";
+            this.tb_salary_tax_VZ.Location = new System.Drawing.Point(55, 55);
+            this.tb_salary_tax_VZ.Name = "tb_salary_tax_VZ";
+            this.tb_salary_tax_VZ.Size = new System.Drawing.Size(36, 20);
+            this.tb_salary_tax_VZ.TabIndex = 3;
+            this.tb_salary_tax_VZ.Text = "1,5";
             // 
-            // textBox1
+            // tb_salary_tax_PDFO
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(36, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "18";
+            this.tb_salary_tax_PDFO.Location = new System.Drawing.Point(55, 22);
+            this.tb_salary_tax_PDFO.Name = "tb_salary_tax_PDFO";
+            this.tb_salary_tax_PDFO.Size = new System.Drawing.Size(36, 20);
+            this.tb_salary_tax_PDFO.TabIndex = 2;
+            this.tb_salary_tax_PDFO.Text = "18";
             // 
             // label8
             // 
@@ -661,6 +662,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btn_salary_search
             // 
@@ -1524,13 +1526,13 @@
         private System.Windows.Forms.Timer timer_main;
         private System.Windows.Forms.ListBox lb_sch_schedule;
         private System.Windows.Forms.GroupBox gb_salary;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_salary_output;
         private System.Windows.Forms.Button btn_salary_count;
         private System.Windows.Forms.GroupBox gb_salary_tax;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_salary_tax_VZ;
+        private System.Windows.Forms.TextBox tb_salary_tax_PDFO;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lable;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

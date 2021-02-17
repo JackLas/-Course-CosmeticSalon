@@ -162,5 +162,15 @@ namespace CosmeticSalon.DB
         {
             return db.getOrderForWorkerByDate(workerID, dt);
         }
+
+        public int getFullSalaryByID(int workerID)
+        {
+            return db.getFullSalaryByID(workerID);
+        }
+
+        public int getSalaryWorkingBonus(int workerID, DateTime begin, DateTime end)
+        {
+            return db.getSalaryWorkingBonus(workerID, begin, end);
+        }
     }
 }

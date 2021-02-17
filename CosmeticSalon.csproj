@@ -78,6 +78,9 @@
     <Compile Include="MainForms\FormWork_otherTab.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForms\FormWork_salaryTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForms\FormWork_scheduleTab.cs">
       <SubType>Form</SubType>
     </Compile>
