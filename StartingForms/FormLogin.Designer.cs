@@ -50,6 +50,7 @@
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(246, 20);
             this.tb_password.TabIndex = 1;
+            this.tb_password.UseSystemPasswordChar = true;
             // 
             // lbl_login
             // 

@@ -181,7 +181,14 @@ namespace CosmeticSalon.MainForms
         {
             if (pastDateDisabled)
             {
-                if (dtp_sch_order_time.Value < DateTime.Now)
+                DateTime check = new DateTime(
+                    dtp_sch_order_date.Value.Year, 
+                    dtp_sch_order_date.Value.Month,
+                    dtp_sch_order_date.Value.Day,
+                    dtp_sch_order_time.Value.Hour,
+                    dtp_sch_order_time.Value.Minute,
+                    0);
+                if (check < DateTime.Now)
                 {
                     dtp_sch_order_time.Value = DateTime.Now;
                 }

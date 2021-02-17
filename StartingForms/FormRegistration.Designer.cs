@@ -133,13 +133,16 @@
             this.tb_repassword.Name = "tb_repassword";
             this.tb_repassword.Size = new System.Drawing.Size(235, 20);
             this.tb_repassword.TabIndex = 8;
+            this.tb_repassword.UseSystemPasswordChar = true;
             // 
             // tb_password
             // 
             this.tb_password.Location = new System.Drawing.Point(57, 72);
             this.tb_password.Name = "tb_password";
+            this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(235, 20);
             this.tb_password.TabIndex = 7;
+            this.tb_password.UseSystemPasswordChar = true;
             // 
             // tb_login
             // 

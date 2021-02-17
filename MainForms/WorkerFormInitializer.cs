@@ -8,10 +8,12 @@ namespace CosmeticSalon.MainForms
         {
             public void Initialize(FormWork form)
             {
-                //form.Text = "Hello from Worker";
-                //form.lbl_test.Text = "Hello from Worker";
-
+                form.tabControl_main.SelectTab("tab_schedule");
                 form.initScheduleTab();
+                form.initClientsTab();
+                form.tabControl_main.TabPages.RemoveByKey("tab_other");
+                form.tabControl_main.TabPages.RemoveByKey("tab_employees");
+                form.tabControl_main.TabPages.RemoveByKey("tab_salary");
             }
         }
     }
