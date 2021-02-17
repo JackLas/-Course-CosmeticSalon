@@ -63,6 +63,24 @@
             this.cb_sch_service = new System.Windows.Forms.ComboBox();
             this.lbl_sch_service = new System.Windows.Forms.Label();
             this.tab_salary = new System.Windows.Forms.TabPage();
+            this.gb_salary = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btn_salary_count = new System.Windows.Forms.Button();
+            this.gb_salary_tax = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lable = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_salary_search = new System.Windows.Forms.Button();
+            this.tb_salary_search = new System.Windows.Forms.TextBox();
+            this.lb_salary_employee = new System.Windows.Forms.ListBox();
             this.tab_employees = new System.Windows.Forms.TabPage();
             this.btn_empl_cancel = new System.Windows.Forms.Button();
             this.btn_empl_approve = new System.Windows.Forms.Button();
@@ -137,6 +155,9 @@
             this.tab_schedule.SuspendLayout();
             this.gb_sch_newOrder.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tab_salary.SuspendLayout();
+            this.gb_salary.SuspendLayout();
+            this.gb_salary_tax.SuspendLayout();
             this.tab_employees.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -480,13 +501,191 @@
             // 
             // tab_salary
             // 
+            this.tab_salary.BackColor = System.Drawing.Color.Azure;
+            this.tab_salary.Controls.Add(this.gb_salary);
+            this.tab_salary.Controls.Add(this.btn_salary_search);
+            this.tab_salary.Controls.Add(this.tb_salary_search);
+            this.tab_salary.Controls.Add(this.lb_salary_employee);
             this.tab_salary.Location = new System.Drawing.Point(4, 22);
             this.tab_salary.Name = "tab_salary";
             this.tab_salary.Padding = new System.Windows.Forms.Padding(3);
             this.tab_salary.Size = new System.Drawing.Size(800, 387);
             this.tab_salary.TabIndex = 1;
             this.tab_salary.Text = "Зарплата";
-            this.tab_salary.UseVisualStyleBackColor = true;
+            // 
+            // gb_salary
+            // 
+            this.gb_salary.Controls.Add(this.richTextBox1);
+            this.gb_salary.Controls.Add(this.btn_salary_count);
+            this.gb_salary.Controls.Add(this.gb_salary_tax);
+            this.gb_salary.Controls.Add(this.dateTimePicker2);
+            this.gb_salary.Controls.Add(this.label7);
+            this.gb_salary.Controls.Add(this.label6);
+            this.gb_salary.Controls.Add(this.label5);
+            this.gb_salary.Controls.Add(this.dateTimePicker1);
+            this.gb_salary.Location = new System.Drawing.Point(353, 6);
+            this.gb_salary.Name = "gb_salary";
+            this.gb_salary.Size = new System.Drawing.Size(331, 365);
+            this.gb_salary.TabIndex = 8;
+            this.gb_salary.TabStop = false;
+            this.gb_salary.Text = "Розрахунок заробітної плати працівника";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(9, 191);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(316, 159);
+            this.richTextBox1.TabIndex = 15;
+            this.richTextBox1.Text = "";
+            // 
+            // btn_salary_count
+            // 
+            this.btn_salary_count.Location = new System.Drawing.Point(62, 162);
+            this.btn_salary_count.Name = "btn_salary_count";
+            this.btn_salary_count.Size = new System.Drawing.Size(187, 23);
+            this.btn_salary_count.TabIndex = 14;
+            this.btn_salary_count.Text = "Розрахувати";
+            this.btn_salary_count.UseVisualStyleBackColor = true;
+            // 
+            // gb_salary_tax
+            // 
+            this.gb_salary_tax.Controls.Add(this.label10);
+            this.gb_salary_tax.Controls.Add(this.label9);
+            this.gb_salary_tax.Controls.Add(this.textBox2);
+            this.gb_salary_tax.Controls.Add(this.textBox1);
+            this.gb_salary_tax.Controls.Add(this.label8);
+            this.gb_salary_tax.Controls.Add(this.lable);
+            this.gb_salary_tax.Location = new System.Drawing.Point(88, 58);
+            this.gb_salary_tax.Name = "gb_salary_tax";
+            this.gb_salary_tax.Size = new System.Drawing.Size(139, 98);
+            this.gb_salary_tax.TabIndex = 13;
+            this.gb_salary_tax.TabStop = false;
+            this.gb_salary_tax.Text = "Податки";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(97, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 16);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "%";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(97, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 16);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "%";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(55, 55);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(36, 20);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "1,5";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(55, 22);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(36, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "18";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "ВЗ";
+            // 
+            // lable
+            // 
+            this.lable.AutoSize = true;
+            this.lable.Location = new System.Drawing.Point(6, 25);
+            this.lable.Name = "lable";
+            this.lable.Size = new System.Drawing.Size(43, 13);
+            this.lable.TabIndex = 0;
+            this.lable.Text = "ПДФО";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(208, 32);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker2.TabIndex = 11;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(177, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 16);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "До";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(8, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 16);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "З";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Період:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 32);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // btn_salary_search
+            // 
+            this.btn_salary_search.Location = new System.Drawing.Point(222, 6);
+            this.btn_salary_search.Name = "btn_salary_search";
+            this.btn_salary_search.Size = new System.Drawing.Size(30, 20);
+            this.btn_salary_search.TabIndex = 6;
+            this.btn_salary_search.Text = "OK";
+            this.btn_salary_search.UseVisualStyleBackColor = true;
+            this.btn_salary_search.Click += new System.EventHandler(this.btn_salary_search_Click);
+            // 
+            // tb_salary_search
+            // 
+            this.tb_salary_search.Location = new System.Drawing.Point(9, 6);
+            this.tb_salary_search.Name = "tb_salary_search";
+            this.tb_salary_search.Size = new System.Drawing.Size(207, 20);
+            this.tb_salary_search.TabIndex = 5;
+            // 
+            // lb_salary_employee
+            // 
+            this.lb_salary_employee.FormattingEnabled = true;
+            this.lb_salary_employee.Location = new System.Drawing.Point(9, 29);
+            this.lb_salary_employee.Name = "lb_salary_employee";
+            this.lb_salary_employee.Size = new System.Drawing.Size(243, 342);
+            this.lb_salary_employee.TabIndex = 4;
             // 
             // tab_employees
             // 
@@ -627,7 +826,6 @@
             this.btn_search.TabIndex = 3;
             this.btn_search.Text = "OK";
             this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // tb_empl_phone
             // 
@@ -703,7 +901,6 @@
             this.lb_employees.Name = "lb_employees";
             this.lb_employees.Size = new System.Drawing.Size(243, 316);
             this.lb_employees.TabIndex = 0;
-            this.lb_employees.SelectedIndexChanged += new System.EventHandler(this.lb_employees_SelectedIndexChanged);
             // 
             // lbl_empl_exp
             // 
@@ -1190,6 +1387,12 @@
             this.gb_sch_newOrder.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tab_salary.ResumeLayout(false);
+            this.tab_salary.PerformLayout();
+            this.gb_salary.ResumeLayout(false);
+            this.gb_salary.PerformLayout();
+            this.gb_salary_tax.ResumeLayout(false);
+            this.gb_salary_tax.PerformLayout();
             this.tab_employees.ResumeLayout(false);
             this.tab_employees.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1320,5 +1523,23 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer_main;
         private System.Windows.Forms.ListBox lb_sch_schedule;
+        private System.Windows.Forms.GroupBox gb_salary;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btn_salary_count;
+        private System.Windows.Forms.GroupBox gb_salary_tax;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lable;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btn_salary_search;
+        private System.Windows.Forms.TextBox tb_salary_search;
+        private System.Windows.Forms.ListBox lb_salary_employee;
     }
 }
