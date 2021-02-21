@@ -903,6 +903,7 @@
             this.lb_employees.Name = "lb_employees";
             this.lb_employees.Size = new System.Drawing.Size(243, 316);
             this.lb_employees.TabIndex = 0;
+            this.lb_employees.SelectedIndexChanged += new System.EventHandler(this.lb_employees_SelectedIndexChanged);
             // 
             // lbl_empl_exp
             // 
@@ -1380,7 +1381,7 @@
             this.MaximizeBox = false;
             this.Name = "FormWork";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormWork";
+            this.Text = "Косметичний салон";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormWork_FormClosed);
             this.tabControl_main.ResumeLayout(false);
             this.tab_schedule.ResumeLayout(false);

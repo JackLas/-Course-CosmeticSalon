@@ -48,5 +48,11 @@ namespace CosmeticSalon.MainForms
         {
             MessageBox.Show("OK");
         }
+/*
+        private void lb_employees_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+
+        }
+*/
     }
 }
